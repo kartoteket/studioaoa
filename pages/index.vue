@@ -35,6 +35,10 @@ export default {
       const i = Math.floor(Math.random() * 3)
       return `video/${this.videos[i]}`
     }
+  },
+  transition(to, from) {
+    if (!from) return 'slide-right'
+    return +to.query.page < +from.query.page ? 'slide-right' : 'slide-left'
   }
 }
 </script>

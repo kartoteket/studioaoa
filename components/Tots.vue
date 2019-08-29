@@ -1,5 +1,5 @@
 <template>
-  <div class="tots">
+  <div class="tots debug">
     <tot v-for="axis in correspondences" :key="axis.id" :tot="axis"></tot>
   </div>
 </template>

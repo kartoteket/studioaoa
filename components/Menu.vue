@@ -1,39 +1,36 @@
 <template>
-  <nav>
-    <ul class="list-reset flex justify-center text-xl font-hairline p-8">
+  <nav class="inset-x-0 bottom-0 mb-8 fixed flex justify-center">
+    <ul
+      class="inline-flex mx-auto justify-center text-xl font-hairline p-8 bg-black"
+    >
       <li
         v-if="linkHome"
         class="border-r mr-4 pr-4"
         :class="`border-${textColor}`"
       >
-        <nuxt-link to="/" class="no-underline">
+        <nuxt-link to="/" :class="`text-${textColor}`">
           Home
         </nuxt-link>
       </li>
 
       <li class="border-r mr-4 pr-4" :class="`border-${textColor}`">
-        <nuxt-link to="/axis" class="no-underline" :class="`text-${textColor}`">
-          Atoms
+        <nuxt-link to="/axis" :class="`text-${textColor}`">
+          Process
         </nuxt-link>
       </li>
       <li class="border-r mr-4 pr-4" :class="`border-${textColor}`">
-        <nuxt-link to="/axis" class="no-underline" :class="`text-${textColor}`">
-          Elements
+        <nuxt-link to="/dataset" :class="`text-${textColor}`">
+          Dataset
         </nuxt-link>
       </li>
       <li class="border-r mr-4 pr-4" :class="`border-${textColor}`">
-        <nuxt-link to="/axis" class="no-underline" :class="`text-${textColor}`">
-          Particles
-        </nuxt-link>
-      </li>
-      <li class="border-r mr-4 pr-4" :class="`border-${textColor}`">
-        <nuxt-link to="/axis" class="no-underline" :class="`text-${textColor}`">
-          Molecules
+        <nuxt-link to="/axis" :class="`text-${textColor}`">
+          Works
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/axis" class="no-underline" :class="`text-${textColor}`">
-          Compounds
+        <nuxt-link to="/axis" :class="`text-${textColor}`">
+          Contact
         </nuxt-link>
       </li>
     </ul>

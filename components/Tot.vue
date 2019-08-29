@@ -1,16 +1,13 @@
 <template>
-  <div
-    v-show="exists(tot)"
-    class="flex flex-col align-center justify-center faux-border"
-  >
-    <div class="border-b border-grey h-64 text-center p-4 crosshairs">
+  <div v-show="exists(tot)" class="flex flex-col w-1/4 mb-12 pr-8">
+    <div class="h-64 text-center p-4 crosshairs">
       <nuxt-link :to="`/axis/${tot.id}`">
         <img v-if="tot.hasTot > 0" :src="imgSrc(tot.id)" class="max-h-full" />
       </nuxt-link>
     </div>
 
-    <div class="relative p-2 pt-10 pb-4 h-64 overflow-scroll">
-      <div class="absolute pin pin-l p-2 text-xs text-grey-darkest">
+    <div class="relative p-2 pt-10 pb-4">
+      <div class="absolute inset-0 left-0 p-2 text-xs text-grey-darkest">
         #{{ tot.id }}
       </div>
 

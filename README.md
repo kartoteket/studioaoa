@@ -6,7 +6,7 @@
 
 ## 0: Home
  - 1 + 3 videos.
- - Fading transistion
+ X Fading transistion
 
 ## I: Raw material
   - Fibonacci Sequence grid

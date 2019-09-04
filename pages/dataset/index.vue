@@ -29,10 +29,6 @@ export default {
   },
   async fetch({ store, params }) {
     await store.dispatch('fetchCorrespondences')
-  },
-  transition(to, from) {
-    if (!from) return 'slide-right'
-    return +to.query.page < +from.query.page ? 'slide-left' : 'slide-right'
   }
 }
 </script>

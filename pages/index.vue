@@ -1,6 +1,6 @@
 <template>
   <div class="cover">
-    <!-- <video
+    <video
       autoplay="autoplay"
       preload="auto"
       playsinline
@@ -9,18 +9,12 @@
       poster
       class="video"
     >
-      <source :src="videoURL" type="video/mp4" />
-    </video> -->
-    <Menu />
+    </video>
   </div>
 </template>
 
 <script>
-import Menu from '~/components/Menu.vue'
 export default {
-  components: {
-    Menu
-  }
   // data() {
   //   return {
   //     videos: [

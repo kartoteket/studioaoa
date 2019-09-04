@@ -1,34 +1,28 @@
 <template>
-  <nav class="inset-x-0 bottom-0 mb-8 fixed flex justify-center">
-    <ul
-      class="inline-flex mx-auto justify-center text-xl font-hairline p-8 bg-black"
-    >
-      <li
-        v-if="linkHome"
-        class="border-r mr-4 pr-4"
-        :class="`border-${textColor}`"
-      >
+  <nav class="menu" :class="{ 'is-open': state }">
+    <ul>
+      <li v-if="linkHome" class="menu__item">
         <nuxt-link to="/" :class="`text-${textColor}`">
           Home
         </nuxt-link>
       </li>
 
-      <li class="border-r mr-4 pr-4" :class="`border-${textColor}`">
+      <li class="menu__item">
         <nuxt-link to="/axis" :class="`text-${textColor}`">
           Process
         </nuxt-link>
       </li>
-      <li class="border-r mr-4 pr-4" :class="`border-${textColor}`">
+      <li class="menu__item">
         <nuxt-link to="/dataset" :class="`text-${textColor}`">
           Dataset
         </nuxt-link>
       </li>
-      <li class="border-r mr-4 pr-4" :class="`border-${textColor}`">
+      <li class="menu__item">
         <nuxt-link to="/axis" :class="`text-${textColor}`">
           Works
         </nuxt-link>
       </li>
-      <li>
+      <li class="menu__item">
         <nuxt-link to="/axis" :class="`text-${textColor}`">
           Contact
         </nuxt-link>
@@ -40,9 +34,13 @@
 <script>
 export default {
   props: {
+    state: {
+      type: Boolean,
+      default: false
+    },
     textColor: {
       type: String,
-      default: 'white'
+      default: 'black'
     },
     linkHome: {
       type: Boolean,
@@ -52,4 +50,18 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+.menu {
+  max-height: 0px;
+  transition: max-height 0.3s;
+  @apply .overflow-hidden .block .top-0 .right-0 .mt-20 .mr-12 .fixed .text-right .text-2xl .leading-loose;
+
+  &.is-open {
+    max-height: 500px;
+  }
+
+  &__item {
+    @apply uppercase py-2;
+  }
+}
+</style>

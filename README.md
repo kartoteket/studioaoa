@@ -1,7 +1,7 @@
 
 # web
  - N sender meg logo
- - bodoni webfont
+ X bodoni webfont
  - Enkel meny som folder seg ut nedover
 
 ## 0: Home

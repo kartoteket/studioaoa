@@ -6,7 +6,7 @@
 
     <!-- "Close" -->
     <nuxt-link
-      to="/axis"
+      to="/material"
       class="absolute pin-t pin-r p-4 text-3xl text-grey-darkest font-hairline no-underline"
     >
       X
@@ -15,7 +15,7 @@
     <!-- Prev Axis -->
     <nuxt-link
       v-if="axis.prev"
-      :to="`/axis/${axis.prev.id}`"
+      :to="`/material/${axis.prev.id}`"
       class="prevnext pin-l"
     >
       prev

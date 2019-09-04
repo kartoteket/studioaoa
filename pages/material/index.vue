@@ -1,6 +1,5 @@
 <template>
-  <section class="p-12">
-    <Menu :link-home="true" />
+  <section class="p-12 pt-20">
     <div class="tots flex flex-wrap items-start">
       <tot v-for="axis in correspondences" :key="axis.id" :tot="axis"></tot>
     </div>
@@ -9,17 +8,9 @@
 
 <script>
 import Tot from '~/components/Tot.vue'
-import Menu from '~/components/Menu.vue'
-// import Tots from '~/components/Tots.vue'
-// import Papa from 'papaparse'
-// const URL =
-//   'https://docs.google.com/spreadsheets/d/e/2PACX-1vTs9xaw1tFZI0cSEfZXJehljJz20P2G2NUca6KxOqo9u2i0cd0oJCJF_eaZrCtZZ2oVBm22NxnWJf_L/pub?output=csv'
-
 export default {
   components: {
-    Menu,
     Tot
-    // Tots
   },
   computed: {
     // Get all correspondences from store

@@ -9,6 +9,7 @@
       poster
       class="video"
     >
+      <source src="~assets/videos/1_silens.mp4" type="video/mp4" />
     </video>
   </div>
 </template>

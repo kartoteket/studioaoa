@@ -6,7 +6,10 @@
 
 ## 0: Home
  - 1 + 3 videos.
- X Fading transistion
+  - Add stills as posters!
+  - make single componenets of video-tag
+  - Set page content container class (responsive max-width)
+ X Fading page transistion
 
 ## I: Raw material
   - Fibonacci Sequence grid
@@ -18,6 +21,8 @@
 
 ## III: Outcome
 Grid med https://masonry.desandro.com/
+  See https://medium.com/@jake101/using-masonry-js-in-nuxt-c4dbf8c17647 and https://stackoverflow.com/questions/57100958/using-masonry-as-a-nuxt-js-plugin-client-side
+
 Elementer i gridden:
  - bilde/video/gif
  - kort tekst og/eller ekstern link

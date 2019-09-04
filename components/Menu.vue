@@ -54,7 +54,7 @@ export default {
 .menu {
   max-height: 0px;
   transition: max-height 0.3s;
-  @apply .overflow-hidden .block .top-0 .right-0 .mt-20 .mr-12 .fixed .text-right .text-2xl .leading-loose;
+  @apply .overflow-hidden .block .top-0 .right-0 .mt-20 .mr-12 .absolute .text-right .text-2xl .leading-loose;
 
   &.is-open {
     max-height: 500px;

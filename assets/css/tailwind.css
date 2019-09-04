@@ -3,9 +3,18 @@
 @import 'tailwindcss/utilities';
 
 
-.debug {
-  outline: 1px solid red;
+
+/**
+ * full screen pages
+ */
+ /* html {
+  min-height: 100%;
 }
+
+#__layout,
+body {
+  min-height: 100vh;
+} */
 
 /**
 * Page transtitions
@@ -15,4 +24,16 @@
 }
 .page-enter, .page-leave-to {
   opacity: 0;
+}
+
+
+/**
+ * Debug
+ */
+ .debug {
+  outline: 1px solid red;
+}
+.debug.flex > *,
+.debug.grid > * {
+  outline:  1px solid blue
 }

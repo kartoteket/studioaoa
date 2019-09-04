@@ -1,5 +1,13 @@
 <template>
-  <header>
+  <header class="flex justify-center fixed w-full">
+    <h1 class="my-4">
+      <img
+        src="~/assets/img/studioaoa.png"
+        title="^O^ = Studioaoa"
+        width="80"
+        class="mt-5"
+      />
+    </h1>
     <menu-icon @state="isOpen = $event" />
     <Menu :state="isOpen" />
   </header>

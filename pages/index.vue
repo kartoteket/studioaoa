@@ -1,30 +1,81 @@
 <template>
-  <div class="cover">
-    <video
-      autoplay="autoplay"
-      preload="auto"
-      playsinline
-      muted="muted"
-      loop="loop"
-      poster
-      class="video"
-    >
-      <source src="~assets/videos/1_silens.mp4" type="video/mp4" />
-    </video>
+  <div>
+    <transition name="fade">
+      <div v-if="!isDone" class="min-h-screen flex justify-center items-center">
+        <video
+          v-show="isReady"
+          id="silensVideo"
+          autoplay="autoplay"
+          preload="auto"
+          playsinline
+          muted="muted"
+          poster
+          @ended="onEnd()"
+          @canplay="fadeIn()"
+        >
+          <source src="~assets/videos/1_silens.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </transition>
+
+    <transition name="slideup">
+      <div v-if="isDone" class="min-h-screen flex justify-between items-center">
+        <video
+          id="silensVideo"
+          autoplay="autoplay"
+          preload="auto"
+          playsinline
+          muted="muted"
+          poster
+          loop
+        >
+          <source src="~assets/videos/rawmaterial_480.mp4" type="video/mp4" />
+        </video>
+
+        <video
+          id="silensVideo"
+          autoplay="autoplay"
+          preload="auto"
+          playsinline
+          muted="muted"
+          poster
+          loop
+        >
+          <source src="~assets/videos/process_480.mp4" type="video/mp4" />
+        </video>
+
+        <video
+          id="silensVideo"
+          autoplay="autoplay"
+          preload="auto"
+          playsinline
+          muted="muted"
+          poster
+          loop
+        >
+          <source src="~assets/videos/outcome_480.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
-  // data() {
-  //   return {
-  //     videos: [
-  //       'Axis-111-_3_Splurge-Qoma-Aleph-2_444.mp4',
-  //       'Axis-111 _2_Splurge-Qoma-Aleph-2_444.mp4',
-  //       'Qoma-Aleph_W2_onsdag_sett6.mp4'
-  //     ]
-  //   }
-  // },
+  data() {
+    return {
+      isReady: false,
+      isDone: false
+    }
+  },
+  methods: {
+    onEnd() {
+      this.isDone = true
+    },
+    fadeIn() {
+      this.isReady = true
+    }
+  }
   // computed: {
   //   videoURL() {
   //     const i = Math.floor(Math.random() * 3)
@@ -39,7 +90,29 @@ export default {
 </script>
 
 <style>
-.video {
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slideup-enter-active,
+.slideup-leave-active {
+  transform: translateY(0);
+  overflow: hidden;
+  transition: transform 3s ease-in-out;
+}
+
+.slideup-enter,
+.slideup-leave-to {
+  transform: translateY(100vh);
+}
+
+.Xvideo {
   position: fixed;
   top: 50%;
   left: 50%;

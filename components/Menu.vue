@@ -8,23 +8,23 @@
       </li>
 
       <li class="menu__item">
-        <nuxt-link to="/axis" :class="`text-${textColor}`">
+        <nuxt-link to="/material" :class="`text-${textColor}`">
+          Raw Material
+        </nuxt-link>
+      </li>
+      <li class="menu__item">
+        <nuxt-link to="/process" :class="`text-${textColor}`">
           Process
         </nuxt-link>
       </li>
       <li class="menu__item">
-        <nuxt-link to="/dataset" :class="`text-${textColor}`">
-          Dataset
+        <nuxt-link to="/outcome" :class="`text-${textColor}`">
+          Outcome
         </nuxt-link>
       </li>
       <li class="menu__item">
-        <nuxt-link to="/axis" :class="`text-${textColor}`">
-          Works
-        </nuxt-link>
-      </li>
-      <li class="menu__item">
-        <nuxt-link to="/axis" :class="`text-${textColor}`">
-          Contact
+        <nuxt-link to="/about" :class="`text-${textColor}`">
+          About
         </nuxt-link>
       </li>
     </ul>

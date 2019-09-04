@@ -7,6 +7,13 @@ body {
   overflow-y: scroll
 }
 
+/* force this styling through the purger*/
+.link,
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 /**
  * full screen pages
  */

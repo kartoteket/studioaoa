@@ -34,7 +34,7 @@
             :loop="true"
             poster="rawmaterial_still.jpg"
           />
-          <n-link class="mt-4 block" to="/material">Raw Material</n-link>
+          <n-link class="link mt-4 block" to="/material">Raw Material</n-link>
         </article>
         <article class="text-center w-1/3 px-16">
           <h1 class="mb-4">II</h1>

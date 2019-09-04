@@ -1,7 +1,7 @@
 <template>
   <div class="font-serif min-h-screen">
     <page-header />
-    <nuxt class="pt-20" />
+    <nuxt />
   </div>
 </template>
 <script>

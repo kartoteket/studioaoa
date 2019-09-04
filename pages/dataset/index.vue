@@ -1,7 +1,7 @@
 <template>
   <section class="p-12">
     <Menu :link-home="true" />
-    <div class="tots flex flex-wrap items-start  debug">
+    <div class="tots flex flex-wrap items-start">
       <tot v-for="axis in correspondences" :key="axis.id" :tot="axis"></tot>
     </div>
   </section>

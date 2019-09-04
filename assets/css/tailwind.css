@@ -3,6 +3,9 @@
 @import 'tailwindcss/utilities';
 
 
+body {
+  overflow-y: scroll
+}
 
 /**
  * full screen pages
@@ -30,10 +33,12 @@ body {
 /**
  * Debug
  */
- .debug {
+
+.debug {
   outline: 1px solid red;
 }
+
 .debug.flex > *,
 .debug.grid > * {
-  outline:  1px solid blue
+  outline: 1px solid blue
 }

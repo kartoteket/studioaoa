@@ -3,7 +3,7 @@
     <!-- "Close" -->
     <nuxt-link
       to="/material"
-      class="absolute pin-t pin-r p-4 m-6 text-3xl font-sans"
+      class="absolute bottom-0 right-0 p-4 m-6 text-3xl font-sans"
     >
       X
     </nuxt-link>

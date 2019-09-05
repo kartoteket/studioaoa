@@ -10,7 +10,7 @@
         poster
         loop
       >
-        <source src="~assets/videos/process_loop_720.mp4" type="video/mp4" />
+          <source src="~assets/videos/process_loop.mp4" type="video/mp4" />
       </video>
       <article
         class="text-center md:text-left sm:w-2/3 md:w-1/2 lg:w-2/5 px-8 sm:px-0 pb-8"

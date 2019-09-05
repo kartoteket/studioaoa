@@ -13,7 +13,9 @@
       >
         <source src="~assets/videos/process_loop_720.mp4" type="video/mp4" />
       </video>
-      <article class="sm:w-2/3 md:w-1/2 lg:w-2/5">
+      <article
+        class="px-8 text-center md:text-left sm:px-0 sm:w-2/3 md:w-1/2 lg:w-2/5"
+      >
         <h1 class="text-ocher font-bold">Process</h1>
         <p>
           The artistic study of the "Tots», has inspired different methods of

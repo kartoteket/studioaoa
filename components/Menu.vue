@@ -86,7 +86,7 @@ export default {
   }
 
   &__item {
-    @apply uppercase py-2;
+    @apply py-2;
   }
 }
 </style>

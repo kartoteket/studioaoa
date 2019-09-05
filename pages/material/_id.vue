@@ -1,14 +1,6 @@
 <template>
   <div>
-    <!-- "Close" -->
-    <nuxt-link
-      to="/material"
-      class="absolute pin-t pin-r p-4 m-6 text-3xl font-sans"
-    >
-      X
-    </nuxt-link>
-
-    <div class="flex justify-between jus min-h-screen pt-24">
+    <div class="flex justify-between min-h-screen pt-24">
       <!-- Prev Axis -->
       <prev-next :axis="axis.prev">
         <path
@@ -21,10 +13,10 @@
         <img
           v-if="axis.current.hasTot > 0"
           :src="imgSrc(axis.current.id)"
-          class="max-h-full mb-8 mx-auto"
+          class="max-h-60 mb-8 mx-auto"
         />
         <!-- Correspondence -->
-        <p class="leading-normal text-sm text-grey-darkest md:w-1/2 mx-auto">
+        <p class="leading-normal text-sm md:w-1/2 mx-auto">
           <span class="whitespace-pre-wrap text-ocher"
             >#{{ axis.current.id }}. {{ axis.current.text }}</span
           >
@@ -38,6 +30,14 @@
         ></path>
       </prev-next>
     </div>
+
+    <!-- "Close" -->
+    <nuxt-link
+      to="/material"
+      class="absolute bottom-0 right-0 p-4 m-6 text-3xl font-sans"
+    >
+      X
+    </nuxt-link>
   </div>
 </template>
 

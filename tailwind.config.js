@@ -28,6 +28,17 @@ module.exports = {
         ocher: {
           default: '#BA9F32'
         }
+      },
+      maxHeight: {
+        'half-screen': '50vh',
+        '60': '60vh'
+      },
+      minHeight: {
+        '101': '101vh'
+      },
+      maxWidth: {
+        auto: 'auto',
+        noe: 'none'
       }
     }
   },

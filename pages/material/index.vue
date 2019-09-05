@@ -1,10 +1,9 @@
 <template>
   <section class="p-12 pt-24">
-    <div class="tots flex flex-wrap items-start pt-8">
-      <tot v-for="axis in correspondences" :key="axis.id" :tot="axis"></tot>
-    </div>
-    <article class="sm:w-2/3 md:w-1/2 lg:w-2/5">
-      <h1 class="text-ocher font-bold">The Raw Material : The Tots</h1>
+    <article class="sm:w-4/5 lg:w-3/5 xl:w-1/2 mx-auto my-10">
+      <h1 class="text-ocher font-bold text-center mb-4">
+        The Raw Material : The Tots
+      </h1>
       <p>
         The Molecular Ballet project is an ongoing experiment intended to create
         a new language of creative expression. The raw material of the project
@@ -14,6 +13,9 @@
         «Tots».
       </p>
     </article>
+    <div class="tots flex flex-wrap items-start pt-8 container mx-auto">
+      <tot v-for="axis in correspondences" :key="axis.id" :tot="axis"></tot>
+    </div>
   </section>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <button
-    class="hamburger hamburger--squeeze absolute top-0 right-0 m-8"
+    class="hamburger hamburger--squeeze m-6 z-20"
     :class="{ 'is-active': state }"
     type="button"
     @click="toggleMenu()"
@@ -39,13 +39,13 @@ export default {
 
 // Settings
 // ==================================================
-$hamburger-padding-x: 15px !default;
-$hamburger-padding-y: 15px !default;
-$hamburger-layer-width: 40px !default;
-$hamburger-layer-height: 4px !default;
-$hamburger-layer-spacing: 6px !default;
+$hamburger-padding-x: 16px !default;
+$hamburger-padding-y: 16px !default;
+$hamburger-layer-width: 30px !default;
+$hamburger-layer-height: 3px !default;
+$hamburger-layer-spacing: 4px !default;
 $hamburger-layer-color: #000 !default;
-$hamburger-layer-border-radius: 4px !default;
+$hamburger-layer-border-radius: 0px !default;
 $hamburger-hover-opacity: 0.7 !default;
 $hamburger-active-layer-color: $hamburger-layer-color !default;
 $hamburger-active-hover-opacity: $hamburger-hover-opacity !default;

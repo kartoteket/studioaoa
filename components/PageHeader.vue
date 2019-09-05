@@ -1,12 +1,12 @@
 <template>
-  <header class="flex justify-center fixed w-full">
+  <header class="flex justify-between fixed w-full z-10">
     <h1 class="my-4">
       <a href="/">
         <img
           src="~/assets/img/studioaoa.png"
           title="^O^ = Studioaoa"
           width="80"
-          class="mt-5"
+          class="m-8"
         />
       </a>
     </h1>

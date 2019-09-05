@@ -24,7 +24,7 @@ export default {
 <style>
 .prevnext {
   transition: opacity 0.3s ease;
-  @apply w-1/5 inline-flex items-center p-4 opacity-25;
+  @apply w-1/5 inline-flex items-center p-4 my-32 opacity-25;
 }
 .prevnext:hover {
   @apply opacity-100;

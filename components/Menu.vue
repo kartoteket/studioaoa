@@ -79,14 +79,14 @@ export default {
 .menu {
   max-height: 0px;
   transition: max-height 0.3s;
-  @apply overflow-hidden block top-0 right-0 mt-20 mr-12 absolute text-right text-2xl leading-normal;
+  @apply overflow-hidden block top-0 right-0 mt-20 mr-12 absolute text-right text-xl leading-normal;
 
   &.is-open {
     max-height: 500px;
   }
 
   &__item {
-    @apply uppercase py-2;
+    @apply py-2;
   }
 }
 </style>

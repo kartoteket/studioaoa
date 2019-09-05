@@ -15,7 +15,7 @@ export default {
   props: {
     axis: {
       type: Object,
-      required: true
+      default: null
     }
   }
 }

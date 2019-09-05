@@ -2,7 +2,7 @@
   <div>
     <section id="stations" class="container mx-auto px-8 lg:px-20">
       <header class="grid__header text-center text-ochre pt-16 pb-8">
-        <h1 class="text-xl uppercase">The 8 Stations of Work</h1>
+        <h1 class="text-xl">8 Stations of work</h1>
       </header>
 
       <station-item

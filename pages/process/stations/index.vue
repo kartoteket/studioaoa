@@ -2,7 +2,7 @@
   <div>
     <section id="stations" class="container mx-auto px-8 lg:px-20">
       <header class="grid__header text-center text-ochre pt-16 pb-8">
-        <h1 class="text-xl">8 Stations of work</h1>
+        <h1 class="text-xl text-ocher">8 Stations of work</h1>
       </header>
 
       <station-item
@@ -12,7 +12,7 @@
       >
         <template v-slot:title>{{ item.title }}</template>
         <template v-slot:img>
-          <img :src="item.img" />
+          <img :src="item.img" :alt="item.title" />
         </template>
         <p>{{ item.text }}</p>
       </station-item>

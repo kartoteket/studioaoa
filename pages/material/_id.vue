@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex justify-between jus min-h-screen pt-24">
+    <div class="flex justify-between min-h-screen pt-24">
       <!-- Prev Axis -->
       <prev-next :axis="axis.prev">
         <path
@@ -16,7 +16,7 @@
           class="max-h-60 mb-8 mx-auto"
         />
         <!-- Correspondence -->
-        <p class="leading-normal text-sm text-grey-darkest md:w-1/2 mx-auto">
+        <p class="leading-normal text-sm md:w-1/2 mx-auto">
           <span class="whitespace-pre-wrap text-ocher"
             >#{{ axis.current.id }}. {{ axis.current.text }}</span
           >

@@ -35,6 +35,10 @@ module.exports = {
       },
       minHeight: {
         '101': '101vh'
+      },
+      maxWidth: {
+        auto: 'auto',
+        noe: 'none'
       }
     }
   },

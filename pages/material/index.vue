@@ -1,9 +1,9 @@
 <template>
-  <section class="p-12 pt-20">
-    <div class="tots flex flex-wrap items-start">
+  <section class="p-12 pt-24">
+    <div class="tots flex flex-wrap items-start pt-8">
       <tot v-for="axis in correspondences" :key="axis.id" :tot="axis"></tot>
     </div>
-    <article class="w-2/5">
+    <article class="sm:w-2/3 md:w-1/2 lg:w-2/5">
       <h1 class="text-ocher font-bold">The Raw Material : The Tots</h1>
       <p>
         The Molecular Ballet project is an ongoing experiment intended to create

@@ -6,7 +6,7 @@
     muted="muted"
     :poster="posterSrc"
     :loop="loop"
-    class="video"
+    class="video inline-block"
   >
     <source :src="src" type="video/mp4" />
   </video>

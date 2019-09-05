@@ -93,28 +93,6 @@ export default {
 </script>
 
 <style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.slideup-enter-active,
-.slideup-leave-active {
-  transform: translateY(0);
-  overflow: hidden;
-  transition: transform 3s ease-in-out;
-}
-
-.slideup-enter,
-.slideup-leave-to {
-  transform: translateY(100vh);
-}
-
 .Xvideo {
   position: fixed;
   top: 50%;

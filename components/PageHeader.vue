@@ -1,5 +1,5 @@
 <template>
-  <header class="flex justify-between fixed w-full">
+  <header class="flex justify-between fixed w-full z-10">
     <h1 class="my-4">
       <a href="/">
         <img

@@ -12,7 +12,7 @@
 
     <div class="relative p-2 pt-10 pb-4 text-center">
       <div class="absolute inset-0 left-0 p-2 text-xs text-grey-darkest">
-        #{{ tot.id }}
+        {{ tot.id }}
       </div>
 
       <!-- <p class="leading-normal text-sm text-grey-darkest">

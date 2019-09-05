@@ -1,22 +1,22 @@
 <template>
   <div>
     <section class="h-screen flex flex-col justify-around items-center pt-24">
-      <video
-        class="max-h-half-screen"
-        autoplay="autoplay"
-        preload="auto"
-        playsinline
-        muted="muted"
-        poster
-        loop
-      >
+        <video
+          class="max-h-half-screen"
+          autoplay="autoplay"
+          preload="auto"
+          playsinline
+          muted="muted"
+          poster
+          loop
+        >
           <source src="~assets/videos/process_loop.mp4" type="video/mp4" />
-      </video>
+        </video>
       <article
-        class="text-center md:text-left sm:w-2/3 md:w-1/2 lg:w-2/5 px-8 sm:px-0 pb-8"
+        class="text-center md:text-left sm:w-2/3 md:w-1/2 lg:w-2/5 px-8 sm:px-0 pb-16"
       >
-        <h1 class="text-ocher font-bold">Process</h1>
-        <p>
+        <h1 class="text-ocher font-bold text-center mb-4">Process</h1>
+        <p class="mb-4">
           The artistic study of the "Tots», has inspired different methods of
           interpretation and transmutation. To carry out the work, a series of
           imaginal characters have emerged, The Dancers. Each of them represent

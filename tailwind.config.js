@@ -28,6 +28,9 @@ module.exports = {
         ocher: {
           default: '#BA9F32'
         }
+      },
+      maxHeight: {
+        'half-screen': '50vh'
       }
     }
   },

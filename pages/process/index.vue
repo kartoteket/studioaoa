@@ -1,9 +1,8 @@
 <template>
   <div>
-    <section
-      class="min-h-screen flex flex-col justify-center items-center pt-24"
-    >
+    <section class="h-screen flex flex-col justify-around items-center pt-24">
       <video
+        class="max-h-half-screen"
         autoplay="autoplay"
         preload="auto"
         playsinline
@@ -14,7 +13,7 @@
         <source src="~assets/videos/process_loop_720.mp4" type="video/mp4" />
       </video>
       <article
-        class="px-8 text-center md:text-left sm:px-0 sm:w-2/3 md:w-1/2 lg:w-2/5"
+        class="text-center md:text-left sm:w-2/3 md:w-1/2 lg:w-2/5 px-8 sm:px-0 pb-8"
       >
         <h1 class="text-ocher font-bold">Process</h1>
         <p>

@@ -67,7 +67,7 @@ export default {
   },
   data() {
     return {
-      isReady: false,
+      isReady: true, // ! buggy - seems to sometimes fail
       isDone: false
     }
   },

@@ -13,7 +13,7 @@
         «Tots».
       </p>
     </article>
-    <div class="tots flex flex-wrap items-start pt-8">
+    <div class="tots flex flex-wrap items-start pt-8 container mx-auto">
       <tot v-for="axis in correspondences" :key="axis.id" :tot="axis"></tot>
     </div>
   </section>

@@ -1,6 +1,6 @@
 <template>
   <button
-    class="hamburger hamburger--squeeze absolute top-0 right-0 m-8"
+    class="hamburger hamburger--squeeze m-8"
     :class="{ 'is-active': state }"
     type="button"
     @click="toggleMenu()"

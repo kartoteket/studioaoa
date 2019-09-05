@@ -30,7 +30,11 @@ module.exports = {
         }
       },
       maxHeight: {
-        'half-screen': '50vh'
+        'half-screen': '50vh',
+        '60': '60vh'
+      },
+      minHeight: {
+        '101': '101vh'
       }
     }
   },

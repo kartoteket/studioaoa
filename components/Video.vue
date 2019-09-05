@@ -42,9 +42,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.video {
-  height: 50%;
-}
-</style>

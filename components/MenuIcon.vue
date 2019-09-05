@@ -1,7 +1,7 @@
 <template>
   <button
     class="hamburger hamburger--squeeze absolute top-0 right-0 m-8"
-    :class="{ 'is-active': isActive }"
+    :class="{ 'is-active': state }"
     type="button"
     @click="toggleMenu()"
   >
@@ -13,15 +13,15 @@
 <script>
 export default {
   name: 'MenuIcon',
-  data() {
-    return {
-      isActive: false
+  props: {
+    state: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
     toggleMenu() {
-      this.isActive = !this.isActive
-      this.$emit('state', this.isActive)
+      this.$emit('state', !this.state)
     }
   }
 }

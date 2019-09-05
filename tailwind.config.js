@@ -8,6 +8,11 @@ module.exports = {
   theme: {
     fontFamily: {
       serif: ['ltc-bodoni-175', 'serif']
+    },
+    colors: {
+      ocher: {
+        default: '#BA9F32'
+      }
     }
   },
   variants: {},

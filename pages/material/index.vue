@@ -3,6 +3,17 @@
     <div class="tots flex flex-wrap items-start">
       <tot v-for="axis in correspondences" :key="axis.id" :tot="axis"></tot>
     </div>
+    <article class="w-2/5">
+      <h1 class="text-ocher font-bold">The Raw Material : The Tots</h1>
+      <p>
+        The Molecular Ballet project is an ongoing experiment intended to create
+        a new language of creative expression. The raw material of the project
+        is a set of 256 collected artworks along with corresponding text
+        snippets. Each artwork is produced as a collage of found material by
+        invited contributors from a wide array of different fields. We call them
+        «Tots».
+      </p>
+    </article>
   </section>
 </template>
 

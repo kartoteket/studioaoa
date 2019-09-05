@@ -2,7 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-
+/* Force scroll */
 body {
   overflow-y: scroll
 }
@@ -36,15 +36,39 @@ body {
   opacity: 0;
 }
 
+/* Other transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slideup-enter-active,
+.slideup-leave-active {
+  transform: translateY(0);
+  overflow: hidden;
+  transition: transform 3s ease-in-out;
+}
+
+.slideup-enter,
+.slideup-leave-to {
+  transform: translateY(100vh);
+}
+
 
 /**
  * Debug
  */
-
+.outline {
+  outline: 1px solid cyan;
+}
 .debug {
   outline: 1px solid red;
 }
-
 .debug.flex > *,
 .debug.grid > * {
   outline: 1px solid blue

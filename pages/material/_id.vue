@@ -1,57 +1,54 @@
 <template>
-  <div class="flex flex-col justify-between min-h-screen">
-    <div class="absolute pin-t pin-l p-2 text-xs text-grey-darkest">
-      #{{ axis.current.id }}
-    </div>
-
+  <div>
     <!-- "Close" -->
     <nuxt-link
       to="/material"
-      class="absolute pin-t pin-r p-4 text-3xl text-grey-darkest font-hairline no-underline"
+      class="absolute pin-t pin-r p-4 m-6 text-3xl font-sans"
     >
       X
     </nuxt-link>
 
-    <!-- Prev Axis -->
-    <nuxt-link
-      v-if="axis.prev"
-      :to="`/material/${axis.prev.id}`"
-      class="prevnext pin-l"
-    >
-      prev
-    </nuxt-link>
+    <div class="flex justify-between jus min-h-screen pt-24">
+      <!-- Prev Axis -->
+      <prev-next :axis="axis.prev">
+        <path
+          d="M9.797 8.5c0 0.125-0.063 0.266-0.156 0.359l-6.141 6.141 6.141 6.141c0.094 0.094 0.156 0.234 0.156 0.359s-0.063 0.266-0.156 0.359l-0.781 0.781c-0.094 0.094-0.234 0.156-0.359 0.156s-0.266-0.063-0.359-0.156l-7.281-7.281c-0.094-0.094-0.156-0.234-0.156-0.359s0.063-0.266 0.156-0.359l7.281-7.281c0.094-0.094 0.234-0.156 0.359-0.156s0.266 0.063 0.359 0.156l0.781 0.781c0.094 0.094 0.156 0.219 0.156 0.359z"
+        ></path>
+      </prev-next>
 
-    <!-- Tot image -->
-    <div class="flex items-center justify-center min-h-full">
-      <img
-        v-if="axis.current.hasTot > 0"
-        :src="imgSrc(axis.current.id)"
-        class="max-h-full"
-      />
-    </div>
+      <!-- Tot image and text -->
+      <div class="self-center text-center">
+        <img
+          v-if="axis.current.hasTot > 0"
+          :src="imgSrc(axis.current.id)"
+          class="max-h-full mb-8 mx-auto"
+        />
+        <!-- Correspondence -->
+        <p class="leading-normal text-sm text-grey-darkest md:w-1/2 mx-auto">
+          <span class="whitespace-pre-wrap text-ocher"
+            >#{{ axis.current.id }}. {{ axis.current.text }}</span
+          >
+        </p>
+      </div>
 
-    <!-- Next Axis -->
-    <nuxt-link
-      v-if="axis.next"
-      :to="`/axis/${axis.next.id}`"
-      class="prevnext pin-r justify-end"
-    >
-      Next
-    </nuxt-link>
-
-    <!-- Correspondence -->
-    <div class="border-t border-grey relative p-4 pb-8 overflow-scroll">
-      <p class="leading-normal text-sm text-grey-darkest">
-        <span class="whitespace-pre-wrap">{{ axis.current.text }}</span>
-      </p>
+      <!-- Next Axis -->
+      <prev-next :axis="axis.next" class="justify-end">
+        <path
+          d="M9.297 15c0 0.125-0.063 0.266-0.156 0.359l-7.281 7.281c-0.094 0.094-0.234 0.156-0.359 0.156s-0.266-0.063-0.359-0.156l-0.781-0.781c-0.094-0.094-0.156-0.219-0.156-0.359 0-0.125 0.063-0.266 0.156-0.359l6.141-6.141-6.141-6.141c-0.094-0.094-0.156-0.234-0.156-0.359s0.063-0.266 0.156-0.359l0.781-0.781c0.094-0.094 0.234-0.156 0.359-0.156s0.266 0.063 0.359 0.156l7.281 7.281c0.094 0.094 0.156 0.234 0.156 0.359z"
+        ></path>
+      </prev-next>
     </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import PrevNext from '@/components/PrevNext'
 
 export default {
+  components: {
+    PrevNext
+  },
   computed: {
     ...mapState({
       axis: 'currentCorrespondences'
@@ -59,7 +56,6 @@ export default {
   },
   async fetch({ store, params, payload }) {
     if (payload) {
-      // console.log(payload)
       store.commit('setCurrentCorrespondences', payload)
     } else {
       await store.dispatch('fetchCorrespondenceById', params.id)
@@ -75,13 +71,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.prevnext {
-  transition: opacity 0.5s;
-  @apply absolute inset-y-0 inline-flex w-1/4 mt-12 p-4 text-xs no-underline items-center opacity-0;
-}
-.prevnext:hover {
-  @apply opacity-100;
-}
-</style>

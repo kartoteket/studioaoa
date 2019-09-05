@@ -1,5 +1,8 @@
 <template>
-  <div v-show="exists(tot)" class="w-1/12 mb-12 pr-8">
+  <div
+    v-show="exists(tot)"
+    class="w-1/3 sm:w-1/5 md:w-1/8 xl:w-1/13 mb-12 pr-8"
+  >
     <div class="p-4 crosshairs">
       <nuxt-link :to="`/material/${tot.id}`">
         <img
@@ -9,15 +12,8 @@
         />
       </nuxt-link>
     </div>
-
-    <div class="relative p-2 pt-10 pb-4 text-center">
-      <div class="absolute inset-0 left-0 p-2 text-xs text-grey-darkest">
-        {{ tot.id }}
-      </div>
-
-      <!-- <p class="leading-normal text-sm text-grey-darkest">
-        <span class="whitespace-pre-wrap">{{ tot.text }}</span>
-      </p> -->
+    <div class="text-xs text-center">
+      {{ tot.id }}
     </div>
   </div>
 </template>

@@ -2,28 +2,48 @@
   <nav class="menu" :class="{ 'is-open': state }">
     <ul>
       <li v-if="linkHome" class="menu__item">
-        <nuxt-link to="/" :class="`text-${textColor}`">
+        <nuxt-link
+          to="/"
+          :class="`text-${textColor}`"
+          @click.native="toggleMenu()"
+        >
           Home
         </nuxt-link>
       </li>
 
       <li class="menu__item">
-        <nuxt-link to="/material" :class="`text-${textColor}`">
+        <nuxt-link
+          to="/material"
+          :class="`text-${textColor}`"
+          @click.native="toggleMenu()"
+        >
           Raw Material
         </nuxt-link>
       </li>
       <li class="menu__item">
-        <nuxt-link to="/process" :class="`text-${textColor}`">
+        <nuxt-link
+          to="/process"
+          :class="`text-${textColor}`"
+          @click.native="toggleMenu()"
+        >
           Process
         </nuxt-link>
       </li>
       <li class="menu__item">
-        <nuxt-link to="/outcome" :class="`text-${textColor}`">
+        <nuxt-link
+          to="/outcome"
+          :class="`text-${textColor}`"
+          @click.native="toggleMenu()"
+        >
           Outcome
         </nuxt-link>
       </li>
       <li class="menu__item">
-        <nuxt-link to="/about" :class="`text-${textColor}`">
+        <nuxt-link
+          to="/about"
+          :class="`text-${textColor}`"
+          @click.native="toggleMenu()"
+        >
           About
         </nuxt-link>
       </li>
@@ -45,6 +65,11 @@ export default {
     linkHome: {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    toggleMenu() {
+      this.$emit('state', !this.state)
     }
   }
 }

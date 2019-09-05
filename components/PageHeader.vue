@@ -10,8 +10,8 @@
         />
       </a>
     </h1>
-    <menu-icon @state="isOpen = $event" />
-    <Menu :state="isOpen" />
+    <menu-icon :state="isOpen" @state="isOpen = $event" />
+    <Menu :state="isOpen" @state="isOpen = $event" />
   </header>
 </template>
 

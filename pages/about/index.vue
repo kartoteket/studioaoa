@@ -15,7 +15,7 @@
       class="px-8 text-center md:text-left sm:px-0 sm:w-2/3 md:w-1/2 lg:w-2/5"
     >
       <h1 class="heading-1">
-        About Studio ^O^ The Molecular Ballet
+        About Studio ^O^ & The Molecular Ballet
       </h1>
       <p class="mb-8">
         Studio ^O^ (AOA) is a multidisciplinary art studio and collective based

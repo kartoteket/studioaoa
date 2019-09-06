@@ -1,4 +1,10 @@
 
+
+## nice to haves
+- Kan musen gjøres om til et ikon som aktiveres når man holder musen over noe som er klikkbart?
+- Inne på hver enkelt Tot, muliggjør å piltaste seg frem og tilbake (nice to have)
+- analytics
+
 # web
  - N sender meg logo
  X bodoni webfont

@@ -28,6 +28,7 @@ export default {
    ** Global CSS
    */
   css: [],
+
   /*
    ** Plugins to load before mounting the App
    */
@@ -53,6 +54,17 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+
+  /*
+   ** purgeCss module configuration
+   */
+  purgeCSS: {
+    whitelistPatternsChildren: [
+      /-(leave|enter|appear)(|-(to|from|active))$/,
+      /^nuxt-link(|-exact)-active$/
+    ]
+  },
+
   /*
    ** Build configuration
    */

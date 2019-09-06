@@ -1,7 +1,7 @@
 
 
 ## nice to haves
-- Kan musen gjøres om til et ikon som aktiveres når man holder musen over noe som er klikkbart?
+X Kan musen gjøres om til et ikon som aktiveres når man holder musen over noe som er klikkbart?
 - Inne på hver enkelt Tot, muliggjør å piltaste seg frem og tilbake (nice to have)
 - analytics
 X change page title to ^O^
@@ -9,10 +9,12 @@ X change page title to ^O^
 - clean upp all main section.container
 
 
+
+
 # web
- - N sender meg logo
+ X N sender meg logo
  X bodoni webfont
- - Enkel meny som folder seg ut nedover
+ x Enkel meny som folder seg ut nedover
 
 ## 0: Home
  - 1 + 3 videos.

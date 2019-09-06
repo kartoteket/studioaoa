@@ -4,7 +4,9 @@
 
 /* Force scroll */
 body {
-  overflow-y: scroll
+  overflow-y: scroll;
+  /* cursor: url('/cursor.png'), default; */
+
 }
 
 /* force this styling through the purger*/
@@ -13,6 +15,12 @@ a {
   color: inherit;
   text-decoration: inherit;
 }
+
+button:hover,
+a:hover{
+  cursor: url('/cursor.png'), default;
+}
+
 
 /**
  ** Abstrations

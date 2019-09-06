@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="container mx-auto pt-16 px-8 lg:px-20 debug">
+    <section class="container mx-auto pt-16 px-8 lg:px-20">
       <header class="pt-16 pb-8">
         <h1 class="heading-1">Selected works</h1>
       </header>

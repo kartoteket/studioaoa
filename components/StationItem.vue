@@ -7,7 +7,7 @@
       <slot name="img"></slot>
     </figure>
     <div class="w-1/2 xl:w-2/5">
-      <h1 class="text-ocher font-bold">
+      <h1 class="heading-2">
         <slot name="title"></slot>
       </h1>
       <slot></slot>

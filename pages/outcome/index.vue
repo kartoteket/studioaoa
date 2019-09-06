@@ -1,8 +1,8 @@
 <template>
   <div>
-    <section id="stations" class="container mx-auto pt-16 px-8 lg:px-20">
-      <header class="grid__header text-center text-ochre pt-16 pb-8">
-        <h1 class="text-ocher">Selected works</h1>
+    <section class="container mx-auto pt-16 px-8 lg:px-20 debug">
+      <header class="pt-16 pb-8">
+        <h1 class="heading-1">Selected works</h1>
       </header>
 
       <div class="flex flex-wrap justify-between">

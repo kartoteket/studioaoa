@@ -15,16 +15,15 @@ a {
 }
 
 /**
- * full screen pages
+ ** Abstrations
  */
- /* html {
-  min-height: 100%;
+.heading-1 {
+  @apply text-ocher font-bold text-center mb-4
+}
+.heading-2 {
+  @apply text-ocher font-bold
 }
 
-#__layout,
-body {
-  min-height: 100vh;
-} */
 
 /**
 * Page transtitions

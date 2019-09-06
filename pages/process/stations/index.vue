@@ -1,8 +1,8 @@
 <template>
   <div>
-    <section id="stations" class="container mx-auto px-8 lg:px-20">
-      <header class="grid__header text-center text-ochre pt-16 pb-8">
-        <h1 class="text-xl text-ocher">8 Stations of work</h1>
+    <section class="container mx-auto px-8 lg:px-20 pt-16">
+      <header class="pt-16 pb-8">
+        <h1 class="heading-1">8 Stations of work</h1>
       </header>
 
       <station-item

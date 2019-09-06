@@ -13,7 +13,7 @@
     <article
       class="px-8 text-center md:text-left sm:px-0 sm:w-2/3 md:w-1/2 lg:w-2/5"
     >
-      <h1 class="text-ocher font-bold mb-4">
+      <h1 class="heading-1">
         About Studio ^O^ The Molecular Ballet
       </h1>
       <p class="mb-8">

@@ -1,43 +1,61 @@
 <template>
   <div>
-    <article class="h-screen flex flex-col justify-around items-center pt-24">
-      <iframe
-        v-if="content[id].embed"
-        width="560"
-        height="315"
-        :src="content[id].embed"
-        frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
+    <div class="flex justify-between min-h-screen pt-24">
+      <!-- Prev Page -->
+      <prev-next :url="prevPage">
+        <path
+          d="M9.797 8.5c0 0.125-0.063 0.266-0.156 0.359l-6.141 6.141 6.141 6.141c0.094 0.094 0.156 0.234 0.156 0.359s-0.063 0.266-0.156 0.359l-0.781 0.781c-0.094 0.094-0.234 0.156-0.359 0.156s-0.266-0.063-0.359-0.156l-7.281-7.281c-0.094-0.094-0.156-0.234-0.156-0.359s0.063-0.266 0.156-0.359l7.281-7.281c0.094-0.094 0.234-0.156 0.359-0.156s0.266 0.063 0.359 0.156l0.781 0.781c0.094 0.094 0.156 0.219 0.156 0.359z"
+        ></path>
+      </prev-next>
 
-      <video
-        v-if="content[id].video"
-        autoplay="autoplay"
-        preload="auto"
-        playsinline
-        muted="muted"
-        :poster="posterSrc"
-        :loop="loop"
-        class="video block max-h-60 max-w-60 mb-8 mx-auto"
+      <article
+        class="h-screen flex flex-col flex-grow justify-around items-center"
       >
-        <source :src="content[id].video" type="video/mp4" />
-      </video>
+        <iframe
+          v-if="content[id].embed"
+          width="560"
+          height="315"
+          :src="content[id].embed"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
 
-      <img
-        v-if="content[id].img"
-        :src="content[id].img"
-        class="block max-h-60 max-w-60  mb-8 mx-auto"
-      />
-      <div
-        class="text-center md:text-left sm:w-2/3 md:w-1/2 lg:w-2/5 px-8 sm:px-0 pb-16"
-      >
-        <h1 class="heading-1">
-          {{ content[id].title }}
-        </h1>
-        <p class="mb-4" v-html="content[id].text"></p>
-      </div>
-    </article>
+        <video
+          v-if="content[id].video"
+          autoplay="autoplay"
+          preload="auto"
+          playsinline
+          muted="muted"
+          :loop="loop"
+          class="video block max-h-60 max-w-60 mb-8 mx-auto"
+        >
+          <source :src="content[id].video" type="video/mp4" />
+        </video>
+
+        <img
+          v-if="content[id].img"
+          :src="content[id].img"
+          class="block max-h-60 max-w-60 mb-8 mx-auto"
+        />
+        <div
+          class="text-center md:text-left md:w-3/5 xxl:w-2/5 px-8 sm:px-0 pb-32"
+        >
+          <h1 class="heading-1">
+            {{ content[id].title }}
+          </h1>
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <p class="mb-4" v-html="content[id].text"></p>
+        </div>
+      </article>
+
+      <prev-next :url="nextPage" class="justify-end">
+        <path
+          d="M9.297 15c0 0.125-0.063 0.266-0.156 0.359l-7.281 7.281c-0.094 0.094-0.234 0.156-0.359 0.156s-0.266-0.063-0.359-0.156l-0.781-0.781c-0.094-0.094-0.156-0.219-0.156-0.359 0-0.125 0.063-0.266 0.156-0.359l6.141-6.141-6.141-6.141c-0.094-0.094-0.156-0.234-0.156-0.359s0.063-0.266 0.156-0.359l0.781-0.781c0.094-0.094 0.234-0.156 0.359-0.156s0.266 0.063 0.359 0.156l7.281 7.281c0.094 0.094 0.156 0.234 0.156 0.359z"
+        ></path>
+      </prev-next>
+    </div>
+
     <!-- "Close" -->
     <nuxt-link
       to="/outcome"
@@ -49,7 +67,12 @@
 </template>
 
 <script>
+import PrevNext from '@/components/PrevNext'
+
 export default {
+  components: {
+    PrevNext
+  },
   data() {
     return {
       id: this.$route.params.id,
@@ -170,6 +193,19 @@ export default {
           img: require('assets/img/works/b/16B_cultureisyouroperatingsystem.gif')
         }
       ]
+    }
+  },
+  computed: {
+    prevPage() {
+      const token = +this.id - 1
+      if (this.id < 1) return null
+      return `/outcome/${token}`
+    },
+    nextPage() {
+      console.log('this.content.length', this.content.length)
+      const token = +this.id + 1
+      if (token >= this.content.length) return null
+      return `/outcome/${token}`
     }
   }
 }

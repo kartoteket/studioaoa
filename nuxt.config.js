@@ -72,7 +72,8 @@ export default {
       sizes: [64, 120, 144, 152, 192, 384, 512]
     },
     meta: {
-      name: 'Studio ^0^'
+      name: 'Studio ^0^',
+      theme_color: '#ba9f32'
     }
   },
 

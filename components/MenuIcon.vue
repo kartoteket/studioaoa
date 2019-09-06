@@ -1,5 +1,6 @@
 <template>
   <button
+    aria-label="Main menu"
     class="hamburger hamburger--squeeze m-6 z-20"
     :class="{ 'is-active': state }"
     type="button"

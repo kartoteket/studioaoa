@@ -63,7 +63,14 @@ export default {
    ** PWA module configuration
    ** See https://pwa.nuxtjs.org/
    */
+  manifest: {
+    icons: []
+  },
   pwa: {
+    icon: {
+      iconFileName: 'icon.png',
+      sizes: [64, 120, 144, 152, 192, 384, 512]
+    },
     meta: {
       name: 'Studio ^0^'
     }

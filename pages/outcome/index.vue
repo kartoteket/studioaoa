@@ -1,23 +1,33 @@
 <template>
-  <div>
-    <section class="container mx-auto pt-16 px-8 lg:px-20">
-      <header class="pt-16 pb-8">
-        <h1 class="heading-1">Selected works</h1>
-      </header>
+  <section class="p-12 pt-24">
+    <article class="sm:w-4/5 lg:w-3/5 xl:w-1/3 mx-auto my-10">
+      <h1 class="heading-1">
+        Selected works
+      </h1>
+      <p>
+        The 10 years 2010-2019 have been dedicated to collecting the Tots, and
+        setting up the experimental methodology of interpretation. The study of
+        the Tots, their texts and the Dancers of the Molecular Ballet, has
+        resulted in collaborations and manifestations in fields, such as cinema
+        and animation, music, photography, theatre and design - all towards the
+        development of the Ultrahieroglyphic.
+      </p>
+    </article>
 
-      <div class="flex flex-wrap justify-between">
-        <n-link
-          v-for="(item, index) in works"
-          :key="index"
-          :to="`/outcome/${index}`"
-          :index="index"
-          class="mb-3 max-w-40 md:max-w-none"
-        >
-          <img :src="item" alt="" class="x-height max-w-none" />
-        </n-link>
-      </div>
-    </section>
-  </div>
+    <div
+      class="flex flex-wrap justify-between pt-8 px-8 lg:px-20 container mx-auto"
+    >
+      <n-link
+        v-for="(item, index) in works"
+        :key="index"
+        :to="`/outcome/${index}`"
+        :index="index"
+        class="mb-3 max-w-40 md:max-w-none"
+      >
+        <img :src="item" alt="" class="x-height max-w-none" />
+      </n-link>
+    </div>
+  </section>
 </template>
 
 <script>

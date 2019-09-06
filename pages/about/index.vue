@@ -15,7 +15,7 @@
       class="px-8 text-center md:text-left sm:px-0 sm:w-2/3 md:w-1/2 lg:w-2/5"
     >
       <h1 class="heading-1">
-        About Studio ^O^ The Molecular Ballet
+        About Studio ^O^ & The Molecular Ballet
       </h1>
       <p class="mb-8">
         Studio ^O^ (AOA) is a multidisciplinary art studio and collective based
@@ -37,9 +37,10 @@
       <p class="mb-8">
         Studio ^O^ was founded in 2010 by artists Ann Holmgren, Nikolai Aurebekk
         Handeland and Petter Width Kristiansen. Presently the studio is engaged
-        as art director of Norwegian design platform Elementa. The autumn of the
-        2019 will launch new projects within cinema and theatre, including a
-        series of educational films for small children in the Saami language.
+        as art director for Norwegian design platform Elementa. The autumn of
+        the 2019 the studio will launch new projects within cinema and theatre,
+        including a series of educational films for small children in the Saami
+        language.
       </p>
 
       <p class="mb-8 text-center">

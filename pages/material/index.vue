@@ -1,10 +1,10 @@
 <template>
   <section class="p-12 pt-24">
-    <article class="sm:w-4/5 lg:w-3/5 xl:w-1/2 mx-auto my-10">
+    <article class="sm:w-4/5 lg:w-3/5 xl:w-1/3 mx-auto my-10">
       <h1 class="heading-1">
         The Raw Material : The Tots
       </h1>
-      <p>
+      <p class="mb-8">
         The Molecular Ballet project is an ongoing experiment intended to create
         a new language of creative expression. The raw material of the project
         is a set of 256 collected artworks along with corresponding text

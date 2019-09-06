@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link v-if="axis" :to="`/material/${axis.id}`" class="prevnext">
+  <nuxt-link v-if="url" :to="url" class="prevnext">
     <svg
       class="fill-current text-ocher inline-block h-12 w-12"
       viewBox="0 0 11 28"
@@ -13,8 +13,8 @@
 <script>
 export default {
   props: {
-    axis: {
-      type: Object,
+    url: {
+      type: String,
       default: null
     }
   }

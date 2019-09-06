@@ -13,11 +13,11 @@
           playsinline
           muted="muted"
           poster
-          class="max-h-60"
+          class="max-h-60 border-0"
           @ended="onEnd()"
           @canplay="fadeIn()"
         >
-          <source src="~assets/videos/1_silens.mp4" type="video/mp4" />
+          <source src="~assets/videos/silens.mp4" type="video/mp4" />
         </video>
       </div>
     </transition>

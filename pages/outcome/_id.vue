@@ -1,10 +1,33 @@
 <template>
   <div>
     <article class="h-screen flex flex-col justify-around items-center pt-24">
+      <iframe
+        v-if="content[id].embed"
+        width="560"
+        height="315"
+        :src="content[id].embed"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+
+      <video
+        v-if="content[id].video"
+        autoplay="autoplay"
+        preload="auto"
+        playsinline
+        muted="muted"
+        :poster="posterSrc"
+        :loop="loop"
+        class="video block max-h-60 max-w-60 mb-8 mx-auto"
+      >
+        <source :src="content[id].video" type="video/mp4" />
+      </video>
+
       <img
         v-if="content[id].img"
         :src="content[id].img"
-        class="block max-h-60 mb-8 mx-auto"
+        class="block max-h-60 max-w-60  mb-8 mx-auto"
       />
       <div
         class="text-center md:text-left sm:w-2/3 md:w-1/2 lg:w-2/5 px-8 sm:px-0 pb-16"
@@ -12,7 +35,7 @@
         <h1 class="heading-1">
           {{ content[id].title }}
         </h1>
-        <p class="mb-4"></p>
+        <p class="mb-4" v-html="content[id].text"></p>
       </div>
     </article>
     <!-- "Close" -->
@@ -32,90 +55,119 @@ export default {
       id: this.$route.params.id,
       content: [
         {
-          title: 'Ballerina',
-          text: '',
+          id: 1,
+          title: 'Axis Coryphee, short film 2016',
+          text:
+            'Part of The Molecular Cycle series.<br>Directed by Ann Holmgren, produced by Studio ^O^.<br>Premiered at the Norwegian Short Film Festival in Grimstad, 2017. ',
           img: require('assets/img/works/b/1B_dedication.gif'),
           embed: ''
         },
         {
-          title: 'wip',
-          text: '111',
-          video: 'assets/img/works/b/2B_111.mp4',
-          // img: require(''),
-          embed: ''
+          id: 2,
+          title: 'Generative animations, 2017-2019',
+          text:
+            'Experiments in parametric animation using the set of Tots as input. Produced by Studio ^O^',
+          video: require('assets/img/works/b/2B_111.mp4')
         },
         {
-          title: 'wip',
-          text: 'Axioman',
+          id: 3,
+          title: 'TAZ RORA HORA, short film, 2013',
+          text:
+            'Directed by Ann Holmgren, produced by Studio ^O^ in collaboration with Space Klezmer Goylem<br/>Part of The Molecular Cycle series. <br/>Premiered at Høstutstillingen / The Autumn salon, 2014 <br/>Shown as part the wandering exhibition Sekvenser - New Norwegian Video Art at 30 different locations, 2014.',
           img: require('assets/img/works/b/3B_axioman.jpg'),
           embed: ''
         },
         {
-          title: 'wip',
-          text: 'Granca',
-          img: require('assets/img/works/b/4B_granca.jpg'),
-          embed: ''
+          id: 4,
+          title: 'The Generator at Rosendal, 2019-',
+          text:
+            'Work in progress.<br />Directed by Ann Holmgren, produced by Studio ^O^<br />Part of The Molecular Cycle series.',
+          img: require('assets/img/works/b/4B_granca.jpg')
         },
         {
-          title: 'wip',
-          text: 'tot25',
-          video: 'assets/img/works/b/5B_Tot25_animation.mp4',
-          // img: require(''),
-          embed: ''
+          id: 5,
+          title: 'Generative animations, 2017-2019',
+          text:
+            'Experiments in parametric animation using the set of Tots as input.<br />Produced by Studio ^O^',
+          video: require('assets/img/works/b/5B_Tot25_animation.mp4')
         },
         {
-          title: 'wip',
-          text: '6',
-          img: require('assets/img/works/b/6AB.JPG'),
-          embed: ''
+          id: 6,
+          title: 'Pattern design, 2015-2019',
+          text:
+            'Studies in pattern design using the Tots as input.<br />Feasability study for the Elementa INN project / The New Book of Patterns.',
+          img: require('assets/img/works/b/6AB.JPG')
         },
         {
-          title: 'axis eins',
-          text: '',
-          // img: require(''),
-          embed: ''
+          id: 7,
+          title: 'Isomorfik, 2019',
+          text:
+            'Short film &/ Music video for Norwegian band Space Klezmer Goylem -  set in the universe of The Molecular Ballet, featuring Dancers Axis Eins, The Signal Workers. Part of the Molecular Cycle series.<br />Competed for Best Music Video at the Short Film Festival in Grimstad, 2019<br />Directed by Ann Holmgren, produced by Studio ^O^ and Goylem.<br />Supported by The Norwegian Art Council.',
+          embed: 'https://www.youtube.com/embed/FV2PpdnOcCY?controls=0'
         },
         {
-          title: 'prints',
-          text: '',
-          // img: require(''),
-          embed: ''
+          id: 8,
+          title: 'Culture Is An Operating System, short film, 2014.',
+          text:
+            'Directed by Ann Holmgren, produced by Studio ^O^.<br />Part of The Molecular Cycle series.',
+          img: require('assets/img/works/b/8B_axis eins.gif')
         },
         {
+          id: 9,
+          title: 'Prints, 2012-2017',
+          text:
+            'Series of prints, 20 x 30 cm glicee print on 320g aquarel paper. Edition of 10.',
+          img: require('assets/img/works/b/9B_prints.jpg')
+        },
+        {
+          id: 10,
           title: 'Lövaman',
-          text: '',
-          // img: require(''),
+          text:
+            'Series of performances and collaborations with Swedish artist Roberto Peyre.',
+          img: require('assets/img/works/b/10B_lövaman.gif')
+        },
+        {
+          id: 11,
+          title: 'Sanit, films for small children.',
+          text:
+            'Series of 8 educational films for small children (1-3 years) in the Saami Language, set in the universe of the Molecular Ballet.',
+          img: require('assets/img/works/b/11B_sanit.jpg'),
           embed: ''
         },
         {
-          title: 'sanit',
-          text: '',
-          // img: require(''),
-          embed: ''
+          id: 12,
+          title: 'Imaginal Machines, 2018-',
+          text:
+            'Animations, studies in fictive machines constructed parametrrically from the Tots.',
+          video: require('assets/img/works/b/12_B_.mp4')
         },
         {
-          title: 'wip',
-          text: '',
-          // img: require(''),
-          embed: ''
+          id: 13,
+          title: 'Art direction and photography for Elementa, 2010-2019',
+          text:
+            'Studio ^O^ is engaged as the art director for Norwegian design platform Elementa.',
+          img: require('assets/img/works/b/13B_elementa.jpg')
         },
         {
-          title: 'wip',
-          text: '',
-          // img: require(''),
-          embed: ''
+          id: 14,
+          title: 'Derive, 2018',
+          text:
+            'Designed by Emma Staubo and Jomi Evers in collaboration with Studio ^O^. Produced by Elementa. Connected to a listening station placed deep inside the forest, the Derive streams real time sound from nature.',
+          video: require('assets/img/works/b/14B_derive.mp4')
         },
         {
-          title: 'wip',
-          text: '',
-          // img: require(''),
-          embed: ''
+          id: 15,
+          title: 'Spegel, short film, 2019',
+          text:
+            'Vignett for BUFF Malmø Film Festival.<br />Directed by Ann Holmgren, produced by Studio ^O^.',
+          img: require('assets/img/works/b/15B_axioman_.jpg')
         },
         {
-          title: 'wip',
-          text: '',
-          // img: require(''),
-          embed: ''
+          id: 16,
+          title: 'Axis Clip Up, short film, 2013',
+          text:
+            'Directed by Ann Holmgren, produced by Studio ^O^.<br />Part of the Molecular Cycle series.', // img: require(''),
+          img: require('assets/img/works/b/16B_cultureisyouroperatingsystem.gif')
         }
       ]
     }

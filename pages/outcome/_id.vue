@@ -9,7 +9,7 @@
       <div
         class="text-center md:text-left sm:w-2/3 md:w-1/2 lg:w-2/5 px-8 sm:px-0 pb-16"
       >
-        <h1 class="text-ocher font-bold text-center mb-4">
+        <h1 class="heading-1">
           {{ content[id].title }}
         </h1>
         <p class="mb-4"></p>

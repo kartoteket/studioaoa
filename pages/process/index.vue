@@ -3,7 +3,7 @@
     <section class="h-screen flex flex-col justify-around items-center pt-24">
       <n-link to="/process/stations">
         <video
-          class="max-h-half-screen"
+          class="max-h-50"
           autoplay="autoplay"
           preload="auto"
           playsinline
@@ -17,7 +17,7 @@
       <article
         class="text-center md:text-left sm:w-2/3 md:w-1/2 lg:w-2/5 px-8 sm:px-0 pb-16"
       >
-        <h1 class="text-ocher font-bold text-center mb-4">Process</h1>
+        <h1 class="heading-1">Process</h1>
         <p class="mb-4">
           The artistic study of the "Tots», has inspired different methods of
           interpretation and transmutation. To carry out the work, a series of

@@ -1,6 +1,7 @@
 <template>
-  <section class="min-h-screen flex flex-col justify-center items-center pt-24">
+  <article class="min-h-screen flex flex-col justify-center items-center pt-24">
     <video
+      class="max-h-40 mb-8"
       autoplay="autoplay"
       preload="auto"
       playsinline
@@ -10,10 +11,10 @@
     >
       <source src="~assets/videos/aboutAOA_720.mp4" type="video/mp4" />
     </video>
-    <article
+    <div
       class="px-8 text-center md:text-left sm:px-0 sm:w-2/3 md:w-1/2 lg:w-2/5"
     >
-      <h1 class="text-ocher font-bold mb-4">
+      <h1 class="heading-1">
         About Studio ^O^ The Molecular Ballet
       </h1>
       <p class="mb-8">
@@ -40,8 +41,14 @@
         2019 will launch new projects within cinema and theatre, including a
         series of educational films for small children in the Saami language.
       </p>
-    </article>
-  </section>
+
+      <p class="mb-8 text-center">
+        <a href="mailto:post@studioaoa.no" class="underline"
+          >post@studioaoa.no</a
+        >
+      </p>
+    </div>
+  </article>
 </template>
 
 <script>

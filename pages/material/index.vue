@@ -1,7 +1,7 @@
 <template>
   <section class="p-12 pt-24">
     <article class="sm:w-4/5 lg:w-3/5 xl:w-1/2 mx-auto my-10">
-      <h1 class="text-ocher font-bold text-center mb-4">
+      <h1 class="heading-1">
         The Raw Material : The Tots
       </h1>
       <p>

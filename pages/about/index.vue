@@ -37,9 +37,10 @@
       <p class="mb-8">
         Studio ^O^ was founded in 2010 by artists Ann Holmgren, Nikolai Aurebekk
         Handeland and Petter Width Kristiansen. Presently the studio is engaged
-        as art director of Norwegian design platform Elementa. The autumn of the
-        2019 will launch new projects within cinema and theatre, including a
-        series of educational films for small children in the Saami language.
+        as art director for Norwegian design platform Elementa. The autumn of
+        the 2019 the studio will launch new projects within cinema and theatre,
+        including a series of educational films for small children in the Saami
+        language.
       </p>
 
       <p class="mb-8 text-center">

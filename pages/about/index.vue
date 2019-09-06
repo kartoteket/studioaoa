@@ -41,6 +41,12 @@
         2019 will launch new projects within cinema and theatre, including a
         series of educational films for small children in the Saami language.
       </p>
+
+      <p class="mb-8 text-center">
+        <a href="mailto:post@studioaoa.no" class="underline"
+          >post@studioaoa.no</a
+        >
+      </p>
     </div>
   </article>
 </template>

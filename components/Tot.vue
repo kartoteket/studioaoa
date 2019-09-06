@@ -33,7 +33,7 @@ export default {
     },
     imgSrc(id) {
       if (id) {
-        return `http://tots.imgix.net/Axis%20${id}.jpg?w=256`
+        return `https://tots.imgix.net/Axis%20${id}.jpg?w=256`
       }
       return false
     }

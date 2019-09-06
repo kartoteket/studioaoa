@@ -39,7 +39,10 @@ module.exports = {
       },
       maxWidth: {
         auto: 'auto',
-        noe: 'none'
+        noe: 'none',
+        '40': '40vw',
+        '50': '50vw',
+        '60': '60vw'
       }
     }
   },

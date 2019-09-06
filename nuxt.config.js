@@ -50,7 +50,10 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+
+    // Doc: https://pwa.nuxtjs.org/
+    ['@nuxtjs/pwa', { workbox: false, manifest: false }]
   ],
   /*
    ** Axios module configuration

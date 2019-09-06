@@ -64,7 +64,10 @@ export default {
    ** See https://pwa.nuxtjs.org/
    */
   manifest: {
-    icons: []
+    icons: [],
+    name: 'Studio ^0^',
+    short_name: ' ^0^',
+    theme_color: '#ba9f32'
   },
   pwa: {
     icon: {
@@ -73,8 +76,7 @@ export default {
     },
     meta: {
       author: false,
-      name: 'Studio ^0^',
-      theme_color: '#ba9f32'
+      name: 'Studio ^0^'
     }
   },
 

@@ -2,7 +2,7 @@
   <div>
     <div class="flex justify-between min-h-screen pt-24">
       <!-- Prev Axis -->
-      <prev-next :axis="axis.prev">
+      <prev-next :url="prevPage">
         <path
           d="M9.797 8.5c0 0.125-0.063 0.266-0.156 0.359l-6.141 6.141 6.141 6.141c0.094 0.094 0.156 0.234 0.156 0.359s-0.063 0.266-0.156 0.359l-0.781 0.781c-0.094 0.094-0.234 0.156-0.359 0.156s-0.266-0.063-0.359-0.156l-7.281-7.281c-0.094-0.094-0.156-0.234-0.156-0.359s0.063-0.266 0.156-0.359l7.281-7.281c0.094-0.094 0.234-0.156 0.359-0.156s0.266 0.063 0.359 0.156l0.781 0.781c0.094 0.094 0.156 0.219 0.156 0.359z"
         ></path>
@@ -24,7 +24,7 @@
       </div>
 
       <!-- Next Axis -->
-      <prev-next :axis="axis.next" class="justify-end">
+      <prev-next :url="nextPage" class="justify-end">
         <path
           d="M9.297 15c0 0.125-0.063 0.266-0.156 0.359l-7.281 7.281c-0.094 0.094-0.234 0.156-0.359 0.156s-0.266-0.063-0.359-0.156l-0.781-0.781c-0.094-0.094-0.156-0.219-0.156-0.359 0-0.125 0.063-0.266 0.156-0.359l6.141-6.141-6.141-6.141c-0.094-0.094-0.156-0.234-0.156-0.359s0.063-0.266 0.156-0.359l0.781-0.781c0.094-0.094 0.234-0.156 0.359-0.156s0.266 0.063 0.359 0.156l7.281 7.281c0.094 0.094 0.156 0.234 0.156 0.359z"
         ></path>
@@ -52,7 +52,13 @@ export default {
   computed: {
     ...mapState({
       axis: 'currentCorrespondences'
-    })
+    }),
+    prevPage() {
+      return this.axis.prev ? `/material/${this.axis.prev.id}` : null
+    },
+    nextPage() {
+      return this.axis.next ? `/material/${this.axis.next.id}` : null
+    }
   },
   async fetch({ store, params, payload }) {
     if (payload) {

@@ -31,7 +31,7 @@ module.exports = {
       },
       maxHeight: {
         '40': '40vh',
-        'half-screen': '50vh',
+        '50': '50vh',
         '60': '60vh'
       },
       minHeight: {

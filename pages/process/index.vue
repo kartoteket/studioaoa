@@ -3,7 +3,7 @@
     <section class="h-screen flex flex-col justify-around items-center pt-24">
       <n-link to="/process/stations">
         <video
-          class="max-h-half-screen"
+          class="max-h-50"
           autoplay="autoplay"
           preload="auto"
           playsinline

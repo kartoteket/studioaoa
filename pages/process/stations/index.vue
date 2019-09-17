@@ -62,13 +62,13 @@ export default {
             'Bringing the Tots into Nature and Nature into the Tots - and interpreting them as a series of projects to help restitute an honourable relationship to nature.  '
         },
         {
-          title: 'Station III: The Axioman',
+          title: 'Station V: The Axioman',
           img: require('assets/img/process/axioman.jpg'),
           text:
             'Opening up for anyone who would like to contribute to the work with the Tots  - and interpreting the set of Tots as 256 conversations to open hearts.'
         },
         {
-          title: 'Station V: Nefer',
+          title: 'Station VI: Nefer',
           img: require('assets/img/process/nefer.jpg'),
           text:
             'Expanding the visual dimension of the Tots  - and interpreting the set of Tots as the 256 pages of a special book teaching the Language of Patterns.'

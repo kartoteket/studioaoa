@@ -22,13 +22,13 @@ export const actions = {
   async fetchCorrespondences({ commit, state }) {
     if (state.correspondences.length === 0) {
       try {
-        console.log('Hitting the API')
+        // console.log('Hitting the API')
         const { data } = await axios.get(URL)
         const correspondences = await Papa.parse(data, {
           header: true,
           dynamicTyping: true
         })
-        // console.log('api shit worked, committing to store')
+        console.log(correspondences.data)
         commit('setCorrespondences', correspondences.data)
         return correspondences.data
       } catch (error) {

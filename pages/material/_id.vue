@@ -9,10 +9,10 @@
       </prev-next>
 
       <!-- Tot image and text -->
-      <div class="self-center text-center">
+      <div class="self-center text-center flex flex-col justify-between">
         <img
           v-if="axis.current.hasTot > 0"
-          :src="imgSrc(axis.current.id)"
+          :src="imgSrc(axis.current)"
           class="max-h-60 mb-8 mx-auto"
         />
         <!-- Correspondence -->
@@ -68,9 +68,11 @@ export default {
     }
   },
   methods: {
-    imgSrc(id) {
-      if (id) {
-        return `https://tots.imgix.net/Axis%20${id}.jpg?w=512`
+    imgSrc(tot) {
+      console.log(tot)
+      if (tot.image || tot.id) {
+        const fileName = tot.image || `Axis%20${tot.id}.jpg`
+        return `https://tots.imgix.net/${fileName}?w=512`
       }
       return false
     }

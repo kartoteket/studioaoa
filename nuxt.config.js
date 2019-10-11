@@ -1,7 +1,6 @@
-const outcomeRoutes = Array.from(Array(16)).map((e, i) => `/outcome/${i}`)
-const materialRoutes = Array.from(Array(256)).map(
-  (e, i) => `/material/${i + 1}`
-)
+/* eslint-disable no-console */
+
+import dynamicRoutes from './utils/api'
 
 export default {
   mode: 'universal',
@@ -99,6 +98,7 @@ export default {
    ** Build configuration
    */
   build: {
+    extractCSS: true,
     /*
      ** You can extend webpack config here
      */
@@ -106,6 +106,7 @@ export default {
   },
 
   generate: {
-    routes: materialRoutes.concat(outcomeRoutes)
+    // interval: 100,
+    routes: dynamicRoutes
   }
 }

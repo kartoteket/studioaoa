@@ -9,7 +9,10 @@
       </prev-next>
 
       <!-- Tot image and text -->
-      <div class="self-center text-center flex flex-col justify-between">
+      <div
+        v-if="axis.current"
+        class="self-center text-center flex flex-col justify-between"
+      >
         <img
           v-if="axis.current.hasTot > 0"
           :src="imgSrc(axis.current)"

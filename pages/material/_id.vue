@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     imgSrc(tot) {
-      console.log(tot)
+      // console.log(tot)
       if (tot.image || tot.id) {
         const fileName = tot.image || `Axis%20${tot.id}.jpg`
         return `https://tots.imgix.net/${fileName}?w=512`

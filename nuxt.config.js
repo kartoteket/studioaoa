@@ -1,3 +1,7 @@
+/* eslint-disable no-console */
+
+import dynamicRoutes from './utils/api'
+
 export default {
   mode: 'universal',
   /*
@@ -94,9 +98,15 @@ export default {
    ** Build configuration
    */
   build: {
+    extractCSS: true,
     /*
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+
+  generate: {
+    // interval: 100,
+    routes: dynamicRoutes
   }
 }

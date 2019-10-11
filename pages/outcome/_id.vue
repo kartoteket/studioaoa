@@ -202,7 +202,7 @@ export default {
       return `/outcome/${token}`
     },
     nextPage() {
-      console.log('this.content.length', this.content.length)
+      // console.log('this.content.length', this.content.length)
       const token = +this.id + 1
       if (token >= this.content.length) return null
       return `/outcome/${token}`

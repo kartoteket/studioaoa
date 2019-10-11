@@ -9,7 +9,10 @@
       </prev-next>
 
       <!-- Tot image and text -->
-      <div class="self-center text-center flex flex-col justify-between">
+      <div
+        v-if="axis.current"
+        class="self-center text-center flex flex-col justify-between"
+      >
         <img
           v-if="axis.current.hasTot > 0"
           :src="imgSrc(axis.current)"
@@ -69,7 +72,7 @@ export default {
   },
   methods: {
     imgSrc(tot) {
-      console.log(tot)
+      // console.log(tot)
       if (tot.image || tot.id) {
         const fileName = tot.image || `Axis%20${tot.id}.jpg`
         return `https://tots.imgix.net/${fileName}?w=512`

@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import axios from 'axios'
 import Papa from 'papaparse'
+
 const URL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vTs9xaw1tFZI0cSEfZXJehljJz20P2G2NUca6KxOqo9u2i0cd0oJCJF_eaZrCtZZ2oVBm22NxnWJf_L/pub?output=csv'
 
@@ -24,11 +25,11 @@ export const actions = {
       try {
         // console.log('Hitting the API')
         const { data } = await axios.get(URL)
-        const correspondences = await Papa.parse(data, {
+        const correspondences = Papa.parse(data, {
           header: true,
           dynamicTyping: true
         })
-        console.log(correspondences.data)
+        // console.log(commit, correspondences.data)
         commit('setCorrespondences', correspondences.data)
         return correspondences.data
       } catch (error) {

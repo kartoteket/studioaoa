@@ -24,7 +24,11 @@
         :index="index"
         class="mb-3 max-w-40 md:max-w-none"
       >
-        <img :src="item" alt="" class="x-height max-w-none" />
+        <img
+          :src="item"
+          :alt="`Illustration: ${item.title}`"
+          class="x-height max-w-none"
+        />
       </n-link>
     </div>
   </section>

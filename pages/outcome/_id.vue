@@ -2,7 +2,11 @@
   <div>
     <div class="flex justify-between min-h-screen pt-24">
       <!-- Prev Page -->
-      <prev-next :url="prevPage">
+      <prev-next
+        :url="prevPage"
+        title="Previous page"
+        aria-label="Previous page"
+      >
         <path
           d="M9.797 8.5c0 0.125-0.063 0.266-0.156 0.359l-6.141 6.141 6.141 6.141c0.094 0.094 0.156 0.234 0.156 0.359s-0.063 0.266-0.156 0.359l-0.781 0.781c-0.094 0.094-0.234 0.156-0.359 0.156s-0.266-0.063-0.359-0.156l-7.281-7.281c-0.094-0.094-0.156-0.234-0.156-0.359s0.063-0.266 0.156-0.359l7.281-7.281c0.094-0.094 0.234-0.156 0.359-0.156s0.266 0.063 0.359 0.156l0.781 0.781c0.094 0.094 0.156 0.219 0.156 0.359z"
         ></path>
@@ -37,6 +41,7 @@
           v-if="content[id].img"
           :src="content[id].img"
           class="block max-h-60 max-w-60 mb-8 mx-auto"
+          :alt="`Illustration: ${content[id].title}`"
         />
         <div
           class="text-center md:text-left md:w-3/5 xxl:w-2/5 px-8 sm:px-0 pb-32"
@@ -49,7 +54,12 @@
         </div>
       </article>
 
-      <prev-next :url="nextPage" class="justify-end">
+      <prev-next
+        :url="nextPage"
+        class="justify-end"
+        title="Next page"
+        aria-label="Next page"
+      >
         <path
           d="M9.297 15c0 0.125-0.063 0.266-0.156 0.359l-7.281 7.281c-0.094 0.094-0.234 0.156-0.359 0.156s-0.266-0.063-0.359-0.156l-0.781-0.781c-0.094-0.094-0.156-0.219-0.156-0.359 0-0.125 0.063-0.266 0.156-0.359l6.141-6.141-6.141-6.141c-0.094-0.094-0.156-0.234-0.156-0.359s0.063-0.266 0.156-0.359l0.781-0.781c0.094-0.094 0.234-0.156 0.359-0.156s0.266 0.063 0.359 0.156l7.281 7.281c0.094 0.094 0.156 0.234 0.156 0.359z"
         ></path>
@@ -60,6 +70,8 @@
     <nuxt-link
       to="/outcome"
       class="absolute bottom-0 right-0 p-4 m-6 text-3xl font-sans"
+      title="Close page"
+      aria-label="Close page"
     >
       X
     </nuxt-link>

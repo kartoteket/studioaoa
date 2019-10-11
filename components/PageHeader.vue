@@ -5,6 +5,7 @@
         <img
           src="~/assets/img/studioaoa.png"
           title="^O^ = Studioaoa"
+          alt="^O^ = Studioaoa logo"
           width="80"
           class="m-8"
         />

@@ -1,3 +1,8 @@
+const outcomeRoutes = Array.from(Array(16)).map((e, i) => `/outcome/${i}`)
+const materialRoutes = Array.from(Array(256)).map(
+  (e, i) => `/material/${i + 1}`
+)
+
 export default {
   mode: 'universal',
   /*
@@ -98,5 +103,9 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+
+  generate: {
+    routes: materialRoutes.concat(outcomeRoutes)
   }
 }

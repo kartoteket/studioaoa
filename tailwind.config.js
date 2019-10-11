@@ -26,7 +26,7 @@ module.exports = {
       },
       colors: {
         ocher: {
-          default: '#BA9F32'
+          default: '#897525' // '#BA9F32' was not AA compliant
         }
       },
       maxHeight: {

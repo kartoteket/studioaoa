@@ -7,9 +7,11 @@
         title="Previous page"
         aria-label="Previous page"
       >
-        <path
-          d="M9.797 8.5c0 0.125-0.063 0.266-0.156 0.359l-6.141 6.141 6.141 6.141c0.094 0.094 0.156 0.234 0.156 0.359s-0.063 0.266-0.156 0.359l-0.781 0.781c-0.094 0.094-0.234 0.156-0.359 0.156s-0.266-0.063-0.359-0.156l-7.281-7.281c-0.094-0.094-0.156-0.234-0.156-0.359s0.063-0.266 0.156-0.359l7.281-7.281c0.094-0.094 0.234-0.156 0.359-0.156s0.266 0.063 0.359 0.156l0.781 0.781c0.094 0.094 0.156 0.219 0.156 0.359z"
-        ></path>
+        <svg>
+          <path
+            d="M9.797 8.5c0 0.125-0.063 0.266-0.156 0.359l-6.141 6.141 6.141 6.141c0.094 0.094 0.156 0.234 0.156 0.359s-0.063 0.266-0.156 0.359l-0.781 0.781c-0.094 0.094-0.234 0.156-0.359 0.156s-0.266-0.063-0.359-0.156l-7.281-7.281c-0.094-0.094-0.156-0.234-0.156-0.359s0.063-0.266 0.156-0.359l7.281-7.281c0.094-0.094 0.234-0.156 0.359-0.156s0.266 0.063 0.359 0.156l0.781 0.781c0.094 0.094 0.156 0.219 0.156 0.359z"
+          ></path>
+        </svg>
       </prev-next>
 
       <!-- Tot image and text -->
@@ -19,7 +21,7 @@
       >
         <img
           v-if="axis.current.hasTot > 0"
-          :src="imgSrc(axis.current)"
+          :src="imgSrc"
           class="max-h-60 mb-8 mx-auto"
           :alt="`Tot #${axis.current.id}`"
         />
@@ -38,9 +40,11 @@
         title="Next page"
         aria-label="Next page"
       >
-        <path
-          d="M9.297 15c0 0.125-0.063 0.266-0.156 0.359l-7.281 7.281c-0.094 0.094-0.234 0.156-0.359 0.156s-0.266-0.063-0.359-0.156l-0.781-0.781c-0.094-0.094-0.156-0.219-0.156-0.359 0-0.125 0.063-0.266 0.156-0.359l6.141-6.141-6.141-6.141c-0.094-0.094-0.156-0.234-0.156-0.359s0.063-0.266 0.156-0.359l0.781-0.781c0.094-0.094 0.234-0.156 0.359-0.156s0.266 0.063 0.359 0.156l7.281 7.281c0.094 0.094 0.156 0.234 0.156 0.359z"
-        ></path>
+        <svg>
+          <path
+            d="M9.297 15c0 0.125-0.063 0.266-0.156 0.359l-7.281 7.281c-0.094 0.094-0.234 0.156-0.359 0.156s-0.266-0.063-0.359-0.156l-0.781-0.781c-0.094-0.094-0.156-0.219-0.156-0.359 0-0.125 0.063-0.266 0.156-0.359l6.141-6.141-6.141-6.141c-0.094-0.094-0.156-0.234-0.156-0.359s0.063-0.266 0.156-0.359l0.781-0.781c0.094-0.094 0.234-0.156 0.359-0.156s0.266 0.063 0.359 0.156l7.281 7.281c0.094 0.094 0.156 0.234 0.156 0.359z"
+          ></path>
+        </svg>
       </prev-next>
     </div>
 
@@ -64,6 +68,11 @@ export default {
   components: {
     PrevNext
   },
+  data() {
+    return {
+      imgSrc: ''
+    }
+  },
   computed: {
     ...mapState({
       axis: 'currentCorrespondences'
@@ -82,14 +91,13 @@ export default {
       await store.dispatch('fetchCorrespondenceById', params.id)
     }
   },
-  methods: {
-    imgSrc(tot) {
-      // console.log(tot)
-      if (tot.image || tot.id) {
-        const fileName = tot.image || `Axis%20${tot.id}.jpg`
-        return `https://tots.imgix.net/${fileName}?w=512`
-      }
-      return false
+  mounted() {
+    // we must wait for mounted to prevent flickr/blink of image
+    // ref: https://github.com/nuxt/nuxt.js/issues/4132
+    if (this.axis.current.image || this.axis.current.id) {
+      const fileName =
+        this.axis.current.image || `Axis%20${this.axis.current.id}.jpg`
+      this.imgSrc = `https://tots.imgix.net/${fileName}?w=512`
     }
   }
 }

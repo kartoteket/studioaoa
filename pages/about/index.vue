@@ -44,8 +44,14 @@
       </p>
 
       <p class="mb-8 text-center">
-        <a href="mailto:post@studioaoa.no" class="underline"
-          >post@studioaoa.no</a
+        <a href="mailto:info@studioaoa.no" class="underline text-ocher"
+          >info@studioaoa.no</a
+        >
+        |
+        <a
+          href="http://www.instagram.com/molecularballet/"
+          class="underline text-ocher"
+          >www.instagram.com/molecularballet</a
         >
       </p>
     </div>

@@ -54,7 +54,18 @@ export default {
     '@nuxtjs/axios',
 
     // Doc: https://pwa.nuxtjs.org/
-    ['@nuxtjs/pwa', { workbox: false, manifest: true }]
+    ['@nuxtjs/pwa', { workbox: false, manifest: true }],
+
+    // https://www.npmjs.com/package/nuxt-sanity
+    [
+      'nuxt-sanity',
+      {
+        projectId: 'a98bcom9', // string, required
+        dataset: 'production' // string, required
+        // token: '', // string, optional
+        // useCdn: false // boolean, optional, default is false
+      }
+    ]
   ],
 
   /*

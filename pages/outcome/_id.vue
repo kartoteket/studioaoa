@@ -220,13 +220,15 @@ export default {
       "entries": *[_type == "work"]{slug}
       }`
     const { work, entries } = await $sanity.fetch(query)
-
+    let prev = null
+    let next = null
     // out pagination
-    const slugs = entries.map((d) => d.slug.current)
-    const index = slugs.findIndex((s) => s === work.slug.current)
-    const prev = index - 1 > -1 ? `/outcome/${slugs[index - 1]}` : null
-    const next =
-      index + 1 < slugs.length ? `/outcome/${slugs[index + 1]}` : null
+    if (work && entries.lenght) {
+      const slugs = entries.map((d) => d.slug.current)
+      const index = slugs.findIndex((s) => s === work.slug.current)
+      prev = index - 1 > -1 ? `/outcome/${slugs[index - 1]}` : null
+      next = index + 1 < slugs.length ? `/outcome/${slugs[index + 1]}` : null
+    }
     return { work, prev, next }
   }
 }

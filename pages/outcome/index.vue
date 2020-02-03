@@ -58,6 +58,13 @@ export default {
       ]
     }
   },
+  async asyncData({ $sanity }) {
+    const query =
+      '{ "works": *[_type == "work" && defined(coverImage)]{_id, title, slug, "imageUrl": coverImage.asset->url} }'
+    const { works } = await $sanity.fetch(query)
+    console.log(works)
+    return works
+  },
   head() {
     return {
       htmlAttrs: {

@@ -89,7 +89,7 @@ export default {
       loop: true,
       id: 1,
       // id: this.$route.params.id,
-      content: [
+      contentDEPRECATED: [
         {
           id: 1,
           title: 'Axis Coryphee, short film 2016',

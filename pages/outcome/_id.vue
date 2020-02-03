@@ -2,11 +2,7 @@
   <div>
     <div class="flex justify-between min-h-screen pt-24">
       <!-- Prev Page -->
-      <prev-next
-        :url="prevPage"
-        title="Previous page"
-        aria-label="Previous page"
-      >
+      <prev-next :url="prev" title="Previous page" aria-label="Previous page">
         <path
           d="M9.797 8.5c0 0.125-0.063 0.266-0.156 0.359l-6.141 6.141 6.141 6.141c0.094 0.094 0.156 0.234 0.156 0.359s-0.063 0.266-0.156 0.359l-0.781 0.781c-0.094 0.094-0.234 0.156-0.359 0.156s-0.266-0.063-0.359-0.156l-7.281-7.281c-0.094-0.094-0.156-0.234-0.156-0.359s0.063-0.266 0.156-0.359l7.281-7.281c0.094-0.094 0.234-0.156 0.359-0.156s0.266 0.063 0.359 0.156l0.781 0.781c0.094 0.094 0.156 0.219 0.156 0.359z"
         ></path>
@@ -46,9 +42,7 @@
         <div
           class="text-center md:text-left md:w-3/5 xxl:w-2/5 px-8 sm:px-0 pb-32"
         >
-          <h1 class="heading-1">
-            {{ work.title }}
-          </h1>
+          <h1 class="heading-1">{{ work.title }} {{ work.year }}</h1>
           <!-- eslint-disable-next-line vue/no-v-html -->
           <block-content
             v-if="work.body"
@@ -60,7 +54,7 @@
       </article>
 
       <prev-next
-        :url="nextPage"
+        :url="next"
         class="justify-end"
         title="Next page"
         aria-label="Next page"
@@ -214,35 +208,26 @@ export default {
       ]
     }
   },
-  computed: {
-    prevPage() {
-      // const token = +this.id - 1
-      // if (this.id < 1) return null
-      // return `/outcome/${token}`
-      return '/'
-    },
-    nextPage() {
-      // // console.log('this.content.length', this.content.length)
-      // const token = +this.id + 1
-      // if (token >= this.content.length) return null
-      // return `/outcome/${token}`
-      return '/'
-    }
-  },
   async asyncData({ $sanity, params }) {
-    const query = `{ "work": *[_type == "work" && slug.current == "${params.id}"][0]{
-      _id,
-      title,
-      slug,
-      year,
-      body,
-      "embed": asset.embedUrl,
-      "image": asset.Image.asset->url,
-      "categories": categories[]->title
-    }}`
-    const result = await $sanity.fetch(query)
-    console.log(result.work)
-    return result
+    const query = `{ 
+      "work": *[_type == "work" && slug.current == "${params.id}"][0]{
+        _id, title, slug, year, body,
+        "embed": asset.embedUrl,
+        "image": asset.Image.asset->url,
+        "video": asset.video.asset->url,
+        "categories": categories[]->title
+      },
+      "entries": *[_type == "work"]{slug}
+      }`
+    const { work, entries } = await $sanity.fetch(query)
+
+    // out pagination
+    const slugs = entries.map((d) => d.slug.current)
+    const index = slugs.findIndex((s) => s === work.slug.current)
+    const prev = index - 1 > -1 ? `/outcome/${slugs[index - 1]}` : null
+    const next =
+      index + 1 < slugs.length ? `/outcome/${slugs[index + 1]}` : null
+    return { work, prev, next }
   }
 }
 </script>

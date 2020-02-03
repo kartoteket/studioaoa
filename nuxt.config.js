@@ -65,9 +65,9 @@ export default {
       'nuxt-sanity',
       {
         projectId: 'a98bcom9', // string, required
-        dataset: 'production' // string, required
+        dataset: 'production', // string, required
         // token: '', // string, optional
-        // useCdn: false // boolean, optional, default is false
+        useCdn: true // boolean, optional, default is false
       }
     ]
   ],

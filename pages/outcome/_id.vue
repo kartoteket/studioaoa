@@ -50,7 +50,12 @@
             {{ work.title }}
           </h1>
           <!-- eslint-disable-next-line vue/no-v-html -->
-          <p class="mb-4" v-html="work.text"></p>
+          <block-content
+            v-if="work.body"
+            class-name="rtf"
+            :render-container-on-single-child="true"
+            :blocks="work.body"
+          />
         </div>
       </article>
 

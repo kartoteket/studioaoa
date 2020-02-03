@@ -36,7 +36,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/remove-focus-outline.js', mode: 'client' }],
+  plugins: [
+    '~/plugins/global.js',
+    { src: '~/plugins/remove-focus-outline.js', mode: 'client' }
+  ],
+
   /*
    ** Nuxt.js dev-modules
    */

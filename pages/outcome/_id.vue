@@ -213,7 +213,7 @@ export default {
       "work": *[_type == "work" && slug.current == "${params.id}"][0]{
         _id, title, slug, year, body,
         "embed": asset.embedUrl,
-        "image": asset.Image.asset->url,
+        "image": asset.image.asset->url,
         "video": asset.video.asset->url,
         "categories": categories[]->title
       },

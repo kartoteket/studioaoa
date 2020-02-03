@@ -20,12 +20,12 @@
       <n-link
         v-for="(item, index) in works"
         :key="index"
-        :to="`/outcome/${index}`"
+        :to="`/outcome/${item.slug.current}`"
         :index="index"
         class="mb-3 max-w-40 md:max-w-none"
       >
         <img
-          :src="item"
+          :src="item.imageUrl"
           :alt="`Illustration: ${item.title}`"
           class="x-height max-w-none"
         />
@@ -38,7 +38,7 @@
 export default {
   data() {
     return {
-      works: [
+      works_temp: [
         require('assets/img/works/a/1A_ballerina.gif'),
         require('assets/img/works/a/2A_111.jpg'),
         require('assets/img/works/a/3A_axioman_taz.jpg'),
@@ -62,8 +62,8 @@ export default {
     const query =
       '{ "works": *[_type == "work" && defined(coverImage)]{_id, title, slug, "imageUrl": coverImage.asset->url} }'
     const { works } = await $sanity.fetch(query)
-    console.log(works)
-    return works
+    //    console.log(works)
+    return { works }
   },
   head() {
     return {
@@ -71,6 +71,9 @@ export default {
         class: 'smooth-scroll'
       }
     }
+  },
+  mounted() {
+    console.log(this.works)
   }
 }
 </script>

@@ -16,17 +16,17 @@
         class="h-screen flex flex-col flex-grow justify-around items-center"
       >
         <iframe
-          v-if="content[id].embed"
+          v-if="work.embed"
           width="560"
           height="315"
-          :src="content[id].embed"
+          :src="work.embed"
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
 
         <video
-          v-if="content[id].video"
+          v-else-if="work.video"
           autoplay="autoplay"
           preload="auto"
           playsinline
@@ -34,23 +34,23 @@
           :loop="loop"
           class="video block max-h-60 max-w-60 mb-8 mx-auto"
         >
-          <source :src="content[id].video" type="video/mp4" />
+          <source :src="work.video" type="video/mp4" />
         </video>
 
         <img
-          v-if="content[id].img"
-          :src="content[id].img"
+          v-else-if="work.image"
+          :src="work.image"
           class="block max-h-60 max-w-60 mb-8 mx-auto"
-          :alt="`Illustration: ${content[id].title}`"
+          :alt="`Illustration: ${work.title}`"
         />
         <div
           class="text-center md:text-left md:w-3/5 xxl:w-2/5 px-8 sm:px-0 pb-32"
         >
           <h1 class="heading-1">
-            {{ content[id].title }}
+            {{ work.title }}
           </h1>
           <!-- eslint-disable-next-line vue/no-v-html -->
-          <p class="mb-4" v-html="content[id].text"></p>
+          <p class="mb-4" v-html="work.text"></p>
         </div>
       </article>
 
@@ -87,7 +87,9 @@ export default {
   },
   data() {
     return {
-      id: this.$route.params.id,
+      loop: true,
+      id: 1,
+      // id: this.$route.params.id,
       content: [
         {
           id: 1,
@@ -209,16 +211,33 @@ export default {
   },
   computed: {
     prevPage() {
-      const token = +this.id - 1
-      if (this.id < 1) return null
-      return `/outcome/${token}`
+      // const token = +this.id - 1
+      // if (this.id < 1) return null
+      // return `/outcome/${token}`
+      return '/'
     },
     nextPage() {
-      // console.log('this.content.length', this.content.length)
-      const token = +this.id + 1
-      if (token >= this.content.length) return null
-      return `/outcome/${token}`
+      // // console.log('this.content.length', this.content.length)
+      // const token = +this.id + 1
+      // if (token >= this.content.length) return null
+      // return `/outcome/${token}`
+      return '/'
     }
+  },
+  async asyncData({ $sanity, params }) {
+    const query = `{ "work": *[_type == "work" && slug.current == "${params.id}"][0]{
+      _id,
+      title,
+      slug,
+      year,
+      body,
+      "embed": asset.embedUrl,
+      "image": asset.Image.asset->url,
+      "categories": categories[]->title
+    }}`
+    const result = await $sanity.fetch(query)
+    console.log(result.work)
+    return result
   }
 }
 </script>

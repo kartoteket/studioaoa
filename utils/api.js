@@ -16,7 +16,7 @@ const URL =
 
 // Dynamicly generate routes for material pages
 export default async function dynamicRoutes() {
-  // currently a bot messy with 2 endpoints
+  // currently a bit messy with 2 endpoints
   const [result1, result2] = await Promise.all([
     client.fetch(query),
     axios.get(URL)

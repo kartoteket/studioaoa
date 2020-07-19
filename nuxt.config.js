@@ -4,6 +4,8 @@ import dynamicRoutes from './utils/api'
 
 export default {
   mode: 'universal',
+  target: 'static', // ref: https://nuxtjs.org/blog/going-full-static/
+
   /*
    ** Headers of the page
    */

@@ -1,13 +1,15 @@
 <template>
-  <nuxt-link v-if="url" :to="url" class="prevnext">
-    <svg
-      class="fill-current text-ocher inline-block h-12 w-12"
-      viewBox="0 0 11 28"
-    >
-      <slot />
-    </svg>
-  </nuxt-link>
-  <div v-else class="prevnext"></div>
+  <div>
+    <nuxt-link v-if="url" :to="url" class="prevnext">
+      <svg
+        class="fill-current text-ocher inline-block h-12 w-12"
+        viewBox="0 0 11 28"
+      >
+        <slot />
+      </svg>
+    </nuxt-link>
+    <div v-else class="prevnext"></div>
+  </div>
 </template>
 
 <script>

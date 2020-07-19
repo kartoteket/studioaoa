@@ -1,11 +1,11 @@
 <template>
-  <nav class="menu" :class="{ 'is-open': state }">
+  <nav :class="{ 'is-open': state }" class="menu">
     <ul class="bg-white p-4 pr-0 z-10">
       <li v-if="linkHome" class="menu__item">
         <nuxt-link
-          to="/"
-          :class="`text-${textColor}`"
           @click.native="toggleMenu()"
+          :class="`text-${textColor}`"
+          to="/"
         >
           Home
         </nuxt-link>
@@ -13,36 +13,36 @@
 
       <li class="menu__item">
         <nuxt-link
-          to="/material"
-          :class="`text-${textColor}`"
           @click.native="toggleMenu()"
+          :class="`text-${textColor}`"
+          to="/material"
         >
           Raw Material
         </nuxt-link>
       </li>
       <li class="menu__item">
         <nuxt-link
-          to="/process"
-          :class="`text-${textColor}`"
           @click.native="toggleMenu()"
+          :class="`text-${textColor}`"
+          to="/process"
         >
           Process
         </nuxt-link>
       </li>
       <li class="menu__item">
         <nuxt-link
-          to="/outcome"
-          :class="`text-${textColor}`"
           @click.native="toggleMenu()"
+          :class="`text-${textColor}`"
+          to="/outcome"
         >
           Outcome
         </nuxt-link>
       </li>
       <li class="menu__item">
         <nuxt-link
-          to="/about"
-          :class="`text-${textColor}`"
           @click.native="toggleMenu()"
+          :class="`text-${textColor}`"
+          to="/about"
         >
           About
         </nuxt-link>

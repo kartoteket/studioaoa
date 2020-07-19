@@ -1,10 +1,10 @@
 <template>
   <button
-    aria-label="Main menu"
-    class="hamburger hamburger--squeeze m-6 z-20"
+    @click="toggleMenu()"
     :class="{ 'is-active': state }"
     type="button"
-    @click="toggleMenu()"
+    class="hamburger hamburger--squeeze m-6 z-20"
+    aria-label="Main menu"
   >
     <span class="hamburger-box">
       <span class="hamburger-inner"></span>

@@ -22,8 +22,8 @@
         <img
           v-if="axis.current.hasTot > 0"
           :src="imgSrc"
-          class="max-h-60 mb-8 mx-auto"
           :alt="`Tot #${axis.current.id}`"
+          class="max-h-60 mb-8 mx-auto"
         />
         <!-- Correspondence -->
         <p class="leading-normal text-sm md:w-1/2 mx-auto">

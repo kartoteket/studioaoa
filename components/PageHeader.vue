@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Menu from '~/components/Menu.vue'
+import Menu from '@/components/Menu.vue'
 import MenuIcon from '@/components/MenuIcon'
 export default {
   name: 'Pageheader',

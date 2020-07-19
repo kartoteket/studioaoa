@@ -8,8 +8,8 @@
         <img
           v-if="tot.hasTot > 0"
           :src="imgSrc(tot)"
-          class="block mx-auto max-h-full"
           :alt="`Tot #${tot.id}`"
+          class="block mx-auto max-h-full"
         />
       </nuxt-link>
     </div>

@@ -13,9 +13,9 @@
       >
         <iframe
           v-if="work.embed"
+          :src="work.embed"
           width="560"
           height="315"
-          :src="work.embed"
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -23,11 +23,11 @@
 
         <video
           v-else-if="work.video"
+          :loop="loop"
           autoplay="autoplay"
           preload="auto"
           playsinline
           muted="muted"
-          :loop="loop"
           class="video block max-h-60 max-w-60 mb-8 mx-auto"
         >
           <source :src="work.video" type="video/mp4" />
@@ -36,8 +36,8 @@
         <img
           v-else-if="work.image"
           :src="work.image"
-          class="block max-h-60 max-w-60 mb-8 mx-auto"
           :alt="`Illustration: ${work.title}`"
+          class="block max-h-60 max-w-60 mb-8 mx-auto"
         />
         <div
           class="text-center md:text-left md:w-3/5 xxl:w-2/5 px-8 sm:px-0 pb-32"
@@ -46,9 +46,9 @@
           <!-- eslint-disable-next-line vue/no-v-html -->
           <block-content
             v-if="work.body"
-            class-name="rtf"
             :render-container-on-single-child="true"
             :blocks="work.body"
+            class-name="rtf"
           />
         </div>
       </article>

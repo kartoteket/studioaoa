@@ -1,17 +1,16 @@
 <template>
   <section class="p-12 pt-24">
+    <!-- TODO: Perhaps extract to re-usable sub component -->
     <article class="sm:w-4/5 lg:w-3/5 xl:w-1/3 mx-auto my-10">
       <h1 class="heading-1">
-        Selected works
+        {{ entry.title }}
       </h1>
-      <p>
-        The 10 years 2010-2019 have been dedicated to collecting the Tots, and
-        setting up the experimental methodology of interpretation. The study of
-        the Tots, their texts and the Dancers of the Molecular Ballet, has
-        resulted in collaborations and manifestations in fields, such as cinema
-        and animation, music, photography, theatre and design - all towards the
-        development of the Ultrahieroglyphic.
-      </p>
+      <block-content
+        v-if="entry.text"
+        :render-container-on-single-child="true"
+        :blocks="entry.text"
+        class-name="rtf"
+      />
     </article>
 
     <div
@@ -59,11 +58,12 @@ export default {
     }
   },
   async asyncData({ $sanity }) {
-    const query =
-      '{ "works": *[_type == "work" && defined(coverImage)]{_id, title, slug, "imageUrl": coverImage.asset->url} }'
-    const { works } = await $sanity.fetch(query)
-    //    console.log(works)
-    return { works }
+    const query = `{
+    "entry": *[_type == "page" && slug.current == "outcome"][0] | {id, title, slug, text},
+    "works": *[_type == "work" && defined(coverImage)]{_id, title, slug, "imageUrl": coverImage.asset->url},
+    }`
+    const result = await $sanity.fetch(query)
+    return result
   },
   head() {
     return {

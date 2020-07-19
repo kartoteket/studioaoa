@@ -2,16 +2,14 @@
   <section class="p-12 pt-24">
     <article class="sm:w-4/5 lg:w-3/5 xl:w-1/3 mx-auto my-10">
       <h1 class="heading-1">
-        The Raw Material : The Tots
+        {{ entry.title }}
       </h1>
-      <p class="mb-8">
-        The Molecular Ballet project is an ongoing experiment intended to create
-        a new language of creative expression. The raw material of the project
-        is a set of 256 collected artworks along with corresponding text
-        snippets. Each artwork is produced as a collage of found material by
-        invited contributors from a wide array of different fields. We call them
-        «Tots».
-      </p>
+      <block-content
+        v-if="entry.text"
+        :render-container-on-single-child="true"
+        :blocks="entry.text"
+        class-name="rtf"
+      />
     </article>
     <div class="tots flex flex-wrap items-start pt-8 container mx-auto">
       <tot v-for="axis in correspondences" :key="axis.id" :tot="axis"></tot>
@@ -30,6 +28,13 @@ export default {
     correspondences() {
       return this.$store.state.correspondences
     }
+  },
+  async asyncData({ $sanity }) {
+    const query = `{
+    "entry": *[_type == "page" && slug.current == "raw-material"][0] | {id, title, slug, text},
+    }`
+    const result = await $sanity.fetch(query)
+    return result
   },
   async fetch({ store, params }) {
     await store.dispatch('fetchCorrespondences')

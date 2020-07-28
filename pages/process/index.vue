@@ -17,14 +17,15 @@
       <article
         class="text-center md:text-left sm:w-2/3 md:w-1/2 lg:w-2/5 px-8 sm:px-0 pb-16"
       >
-        <h1 class="heading-1">Process</h1>
-        <p class="mb-4">
-          The artistic study of the "Tots», has inspired different methods of
-          interpretation and transmutation. To carry out the work, a series of
-          imaginal characters have emerged, The Dancers. Each of them represent
-          a specific operation that the set of 256 Tots must undergo to reach
-          their final form as the Ultrahieroglyphic Language.
-        </p>
+        <h1 class="heading-1">
+          {{ entry.title }}
+        </h1>
+        <block-content
+          v-if="entry.text"
+          :render-container-on-single-child="true"
+          :blocks="entry.text"
+          class-name="rtf mb-4"
+        />
         <p class="text-center underline">
           <a href="/process/stations">The 8 Stations of Work</a>
         </p>
@@ -36,5 +37,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'Process',
+  async asyncData({ $sanity }) {
+    const query = `{
+    "entry": *[_type == "page" && slug.current == "process"][0] | {id, title, slug, text},
+    }`
+    const result = await $sanity.fetch(query)
+    return result
+  }
+}
 </script>

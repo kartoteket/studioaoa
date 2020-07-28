@@ -1,6 +1,6 @@
 {
   "name": "studioaoa",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Studio ^O^ (AOA) is a multidisciplinary art studio and collective based in Oslo, Norway. We work within different fields, spanning from design, cinema and theater to music and dance.",
   "author": "Svale Fossåskaret",
   "private": true,
@@ -14,11 +14,10 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-beta.17",
     "nuxt": "^2.0.0",
     "nuxt-sanity": "^0.0.8",
-    "papaparse": "^5.0.2",
     "sanity-blocks-vue-component": "^0.1.0"
   },
   "devDependencies": {

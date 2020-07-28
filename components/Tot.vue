@@ -6,7 +6,7 @@
     <div class="p-4 crosshairs">
       <nuxt-link :to="`/material/${tot.id}`">
         <img
-          :src="`${tot.imageUrl}?w=256`"
+          :src="`${tot.imageUrl}?w=512`"
           :alt="`Tot #${tot.id}`"
           class="block mx-auto max-h-full"
         />

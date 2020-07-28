@@ -12,7 +12,7 @@
       />
     </article>
     <div class="tots flex flex-wrap items-start pt-8 container mx-auto">
-      <tot v-for="axis in correspondences" :key="axis.id" :tot="axis"></tot>
+      <tot v-for="tot in axis" :key="tot.id" :tot="tot"></tot>
     </div>
   </section>
 </template>
@@ -23,21 +23,13 @@ export default {
   components: {
     Tot
   },
-  computed: {
-    // Get all correspondences from store
-    correspondences() {
-      return this.$store.state.correspondences
-    }
-  },
   async asyncData({ $sanity }) {
     const query = `{
     "entry": *[_type == "page" && slug.current == "raw-material"][0] | {id, title, slug, text},
+    "axis": *[_type == "axis" && defined(axisTot)]{_id, id, title, slug, text, "imageUrl": axisTot.asset->url},
     }`
     const result = await $sanity.fetch(query)
     return result
-  },
-  async fetch({ store, params }) {
-    await store.dispatch('fetchCorrespondences')
   }
 }
 </script>

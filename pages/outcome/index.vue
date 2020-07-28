@@ -35,28 +35,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      works_temp: [
-        require('assets/img/works/a/1A_ballerina.gif'),
-        require('assets/img/works/a/2A_111.jpg'),
-        require('assets/img/works/a/3A_axioman_taz.jpg'),
-        require('assets/img/works/a/4A_granca_t.jpg'),
-        require('assets/img/works/a/5A_tot25.jpg'),
-        require('assets/img/works/a/6AB.JPG'),
-        require('assets/img/works/a/7A_signalwork.gif'),
-        require('assets/img/works/a/8A_axis eins.gif'),
-        require('assets/img/works/a/9A.JPG'),
-        require('assets/img/works/a/10A_lövaman.gif'),
-        require('assets/img/works/a/11A_sanit.jpg'),
-        require('assets/img/works/a/12_A.jpg'),
-        require('assets/img/works/a/13a_elementa.jpg'),
-        require('assets/img/works/a/14A_derive.jpg'),
-        require('assets/img/works/a/15A_axioman.jpg'),
-        require('assets/img/works/a/16A_information psychologist.gif')
-      ]
-    }
-  },
   async asyncData({ $sanity }) {
     const query = `{
     "entry": *[_type == "page" && slug.current == "outcome"][0] | {id, title, slug, text},
@@ -71,9 +49,6 @@ export default {
         class: 'smooth-scroll'
       }
     }
-  },
-  mounted() {
-    console.log(this.works)
   }
 }
 </script>

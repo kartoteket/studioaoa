@@ -22,10 +22,13 @@ const query = `{
 export default async function dynamicRoutes() {
   const { work, axis } = await client.fetch(query)
 
-  const outcomeRoutes = work.map((d) => ({
-    route: `/outcome/${d.slug.current}`,
-    payload: d
-  }))
+  const outcomeRoutes = work.map((d) => {
+    if (d.slug)
+      return {
+        route: `/outcome/${d.slug.current}`,
+        payload: d
+      }
+  })
 
   const materialRoutes = axis.map((d) => ({
     route: `/material/${d.id}`,

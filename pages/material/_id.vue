@@ -16,21 +16,26 @@
 
       <!-- Tot image and text -->
       <div
-        v-if="axis.current"
+        v-if="entry"
         class="self-center text-center flex flex-col justify-between"
       >
         <img
-          v-if="axis.current.hasTot > 0"
-          :src="imgSrc"
+          v-if="entry.imageUrl"
+          :src="`${entry.imageUrl}?w=512`"
+          :alt="`Tot #${entry.id}`"
           class="max-h-60 mb-8 mx-auto"
-          :alt="`Tot #${axis.current.id}`"
         />
+
         <!-- Correspondence -->
-        <p class="leading-normal text-sm md:w-1/2 mx-auto">
-          <span class="whitespace-pre-wrap text-ocher"
-            >#{{ axis.current.id }}. {{ axis.current.text }}</span
-          >
-        </p>
+        <div class="leading-normal text-sm md:w-1/2 mx-auto">
+          <span class="text-ocher">{{ entry.title }}. </span>
+          <block-content
+            v-if="entry.text"
+            :render-container-on-single-child="true"
+            :blocks="entry.text"
+            class-name="rtf text-ocher"
+          />
+        </div>
       </div>
 
       <!-- Next Axis -->
@@ -61,44 +66,28 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import PrevNext from '@/components/PrevNext'
 
 export default {
   components: {
     PrevNext
   },
-  data() {
-    return {
-      imgSrc: ''
-    }
-  },
   computed: {
-    ...mapState({
-      axis: 'currentCorrespondences'
-    }),
     prevPage() {
-      return this.axis.prev ? `/material/${this.axis.prev.id}` : null
+      return `/material/${this.entry.id - 1}`
+      // return this.axis.prev ? `/material/${this.axis.prev.id}` : null
     },
     nextPage() {
-      return this.axis.next ? `/material/${this.axis.next.id}` : null
+      return `/material/${this.entry.id + 1}`
+      // return this.axis.next ? `/material/${this.axis.next.id}` : null
     }
   },
-  async fetch({ store, params, payload }) {
-    if (payload) {
-      store.commit('setCurrentCorrespondences', payload)
-    } else {
-      await store.dispatch('fetchCorrespondenceById', params.id)
-    }
-  },
-  mounted() {
-    // we must wait for mounted to prevent flickr/blink of image
-    // ref: https://github.com/nuxt/nuxt.js/issues/4132
-    if (this.axis.current.image || this.axis.current.id) {
-      const fileName =
-        this.axis.current.image || `Axis%20${this.axis.current.id}.jpg`
-      this.imgSrc = `https://tots.imgix.net/${fileName}?w=512`
-    }
+  async asyncData({ $sanity, params }) {
+    const query = `{
+    "entry": *[_type == "axis" && id == ${params.id}][0] | {_id, id, title, slug, text, "imageUrl": axisTot.asset->url},
+    }`
+    const result = await $sanity.fetch(query)
+    return result
   }
 }
 </script>

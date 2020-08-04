@@ -1,11 +1,11 @@
 <template>
   <video
+    :poster="posterSrc"
+    :loop="loop"
     autoplay="autoplay"
     preload="auto"
     playsinline
     muted="muted"
-    :poster="posterSrc"
-    :loop="loop"
     class="video inline-block"
   >
     <source :src="src" type="video/mp4" />

@@ -4,6 +4,8 @@ import dynamicRoutes from './utils/api'
 
 export default {
   mode: 'universal',
+  target: 'server', // 'static', // ref: https://nuxtjs.org/blog/going-full-static/
+
   /*
    ** Headers of the page
    */
@@ -36,7 +38,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/remove-focus-outline.js', mode: 'client' }],
+  plugins: [
+    '~/plugins/global.js',
+    { src: '~/plugins/remove-focus-outline.js', mode: 'client' }
+  ],
+
   /*
    ** Nuxt.js dev-modules
    */
@@ -54,7 +60,18 @@ export default {
     '@nuxtjs/axios',
 
     // Doc: https://pwa.nuxtjs.org/
-    ['@nuxtjs/pwa', { workbox: false, manifest: true }]
+    ['@nuxtjs/pwa', { workbox: false, manifest: true }],
+
+    // https://www.npmjs.com/package/nuxt-sanity
+    [
+      'nuxt-sanity',
+      {
+        projectId: 'a98bcom9', // string, required
+        dataset: 'production', // string, required
+        // token: '', // string, optional
+        useCdn: true // boolean, optional, default is false
+      }
+    ]
   ],
 
   /*

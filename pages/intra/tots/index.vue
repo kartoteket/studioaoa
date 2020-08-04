@@ -1,28 +1,42 @@
 <template>
   <section class="p-12 pt-24">
-    <article class="sm:w-4/5 lg:w-3/5 xl:w-1/3 mx-auto my-10">
-      <h1 class="heading-1">
-        {{ entry.title }}
-      </h1>
-      <block-content
-        v-if="entry.text"
-        :render-container-on-single-child="true"
-        :blocks="entry.text"
-        class-name="rtf"
-      />
-    </article>
-    <div class="tots flex flex-wrap items-start pt-8 container mx-auto">
-      <tot v-for="tot in axis" :key="tot.id" :tot="tot"></tot>
-    </div>
+    <p class="font-sans text-sm lg:fixed z-50 right-0 m-5 lg:w-1/5">
+      Images can be manipulated by URL parameteres (eg
+      <code>w=512</code>
+      sets width to 512 px). See
+      <a
+        class="underline"
+        href="https://www.sanity.io/docs/image-urls#the-url-parameters-BhPyF4m0"
+        >all possible options here</a
+      >
+    </p>
+    <table>
+      <thead>
+        <th>id</th>
+        <th>tot</th>
+        <th>url</th>
+      </thead>
+      <tbody>
+        <tr v-for="tot in axis" :key="tot.id">
+          <td>{{ tot.id }}</td>
+          <td>
+            <img
+              :src="`${tot.imageUrl}?w=48`"
+              :alt="`Tot #${tot.id}`"
+              class="block mx-auto max-h-full"
+            />
+          </td>
+          <td class="font-sans text-xs">
+            {{ `${tot.imageUrl}?w=512` }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 </template>
 
 <script>
-import Tot from '~/components/Tot.vue'
 export default {
-  components: {
-    Tot
-  },
   async asyncData({ $sanity }) {
     const query = `{
     "entry": *[_type == "page" && slug.current == "raw-material"][0] | {id, title, slug, text},

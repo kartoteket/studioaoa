@@ -6,10 +6,9 @@
     <div class="p-4 crosshairs">
       <nuxt-link :to="`/material/${tot.id}`">
         <img
-          v-if="tot.hasTot > 0"
-          :src="imgSrc(tot)"
-          class="block mx-auto max-h-full"
+          :src="`${tot.imageUrl}?w=512`"
           :alt="`Tot #${tot.id}`"
+          class="block mx-auto max-h-full"
         />
       </nuxt-link>
     </div>
@@ -30,14 +29,7 @@ export default {
   },
   methods: {
     exists(tot) {
-      return tot.text || tot.hasTot
-    },
-    imgSrc(tot) {
-      if (tot.image || tot.id) {
-        const fileName = tot.image || `Axis%20${tot.id}.jpg`
-        return `https://tots.imgix.net/${fileName}?w=256`
-      }
-      return false
+      return tot.text || tot.imageUrl
     }
   }
 }

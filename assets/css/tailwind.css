@@ -32,6 +32,15 @@ a:hover{
   @apply text-ocher font-bold
 }
 
+/**
+ ** Rich text bottom margins
+ **/
+.rtf > * {
+  @apply mb-4
+}
+.rtf > *:last-child {
+  @apply mb-0
+}
 
 /**
 * Page transtitions

@@ -6,16 +6,16 @@
         class="min-h-screen flex justify-center items-center pt-10"
       >
         <video
-          v-show="isReady"
           id="silensVideo"
+          v-show="isReady"
+          @ended="onEnd()"
+          @canplay="fadeIn()"
           autoplay="autoplay"
           preload="auto"
           playsinline
           muted="muted"
           poster
           class="max-h-60 border-0"
-          @ended="onEnd()"
-          @canplay="fadeIn()"
         >
           <source src="~assets/videos/silens.mp4" type="video/mp4" />
         </video>
@@ -28,11 +28,11 @@
         class="min-h-101 flex flex-col md:flex-row justify-center md:justify-between items-center container mx-auto"
       >
         <article
-          class="flex items-center md:block text-center w-4/6 md:w-1/3 md:px-4 md:px-8 lg:px-16 mb-10 mt-10 md:mb-0 md:mt-0"
+          class="flex items-center md:block text-center w-4/6 md:w-1/3 md:px-8 lg:px-16 mb-10 mt-10 md:mb-0 md:mt-0"
         >
           <h1 class="md:mb-4 w-1/4 md:w-auto">I</h1>
           <n-link class="link md:mt-4 block w-2/4 md:w-auto" to="/material">
-            <video-component file-name="rawmaterial_480.mp4" :loop="true" />
+            <video-component :loop="true" file-name="rawmaterial_480.mp4" />
           </n-link>
           <n-link
             class="link md:mt-4 block w-1/4 flex-grow md:w-auto"
@@ -42,11 +42,11 @@
         </article>
 
         <article
-          class="flex items-center md:block text-center w-4/6 md:w-1/3 md:px-4 md:px-8 lg:px-16 mb-10 md:mb-0"
+          class="flex items-center md:block text-center w-4/6 md:w-1/3 md:px-8 lg:px-16 mb-10 md:mb-0"
         >
           <h1 class="md:mb-4 w-1/4 md:w-auto">II</h1>
           <n-link class="link md:mt-4 block w-2/4 md:w-auto" to="/process">
-            <video-component file-name="process_480.mp4" :loop="true" />
+            <video-component :loop="true" file-name="process_480.mp4" />
           </n-link>
           <n-link
             class="link md:mt-4 block w-1/4 flex-grow md:w-auto"
@@ -56,11 +56,11 @@
         </article>
 
         <article
-          class="flex items-center md:block text-center w-4/6 md:w-1/3 md:px-4 md:px-8 lg:px-16 mb-0"
+          class="flex items-center md:block text-center w-4/6 md:w-1/3 md:px-8 lg:px-16 mb-0"
         >
           <h1 class="md:mb-4 w-1/4 md:w-auto">III</h1>
           <n-link class="link md:mt-4 block w-2/4 md:w-auto" to="/outcome">
-            <video-component file-name="outcome_480.mp4" :loop="true" />
+            <video-component :loop="true" file-name="outcome_480.mp4" />
           </n-link>
           <n-link
             class="link md:mt-4 block w-1/4 flex-grow md:w-auto"

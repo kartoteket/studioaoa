@@ -1,7 +1,7 @@
 <template>
   <article
-    class="flex items-center justify-between mb-32"
     :class="{ 'flex-row-reverse': index % 2 }"
+    class="flex items-center justify-between mb-32"
   >
     <figure class="w-1/2 xl:w-3/5 block">
       <slot name="img"></slot>

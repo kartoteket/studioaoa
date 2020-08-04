@@ -105,7 +105,7 @@ export default {
     let prev = null
     let next = null
     // out pagination
-    if (work && entries.lenght) {
+    if (work && entries.length) {
       const slugs = entries.map((d) => d.slug.current)
       const index = slugs.findIndex((s) => s === work.slug.current)
       prev = index - 1 > -1 ? `/outcome/${slugs[index - 1]}` : null

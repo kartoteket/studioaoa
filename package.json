@@ -16,9 +16,11 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-beta.17",
+    "get-youtube-id": "^1.0.1",
     "nuxt": "^2.0.0",
     "nuxt-sanity": "^0.0.8",
-    "sanity-blocks-vue-component": "^0.1.0"
+    "sanity-blocks-vue-component": "^0.1.0",
+    "vue-youtube": "^1.4.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",

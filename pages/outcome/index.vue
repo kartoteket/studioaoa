@@ -38,7 +38,7 @@ export default {
   async asyncData({ $sanity }) {
     const query = `{
     "entry": *[_type == "page" && slug.current == "outcome"][0] | {id, title, slug, text},
-    "works": *[_type == "work" && defined(coverImage)]{_id, title, slug, "imageUrl": coverImage.asset->url},
+    "works": *[_type == "work" && defined(coverImage) && defined(slug)] | order(priority asc) | {_id, title, slug, "imageUrl": coverImage.asset->url},
     }`
     const result = await $sanity.fetch(query)
     return result

@@ -125,7 +125,6 @@ export default {
       "entries": *[_type == "work" && defined(slug)]{slug}
       }`
     const { work, entries } = await $sanity.fetch(query)
-    console.log(work.content)
     let prev = null
     let next = null
     // out pagination

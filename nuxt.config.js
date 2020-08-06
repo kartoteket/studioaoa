@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import dynamicRoutes from './utils/api'
+// import dynamicRoutes from './utils/api'
 
 export default {
   mode: 'universal',
@@ -124,6 +124,6 @@ export default {
 
   generate: {
     // interval: 100,
-    routes: dynamicRoutes
+    // routes: dynamicRoutes
   }
 }

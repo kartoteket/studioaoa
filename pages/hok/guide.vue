@@ -38,6 +38,7 @@
                 id="name"
                 @input="updateName($event.target.value)"
                 :value="userName"
+                name="userName"
                 type="text"
                 class="border-black border-b-2 text-center font-sans focus:outline-none mb-4"
                 autofocus
@@ -52,6 +53,7 @@
                 id="email"
                 @input="updateEmail($event.target.value)"
                 :value="userEmail"
+                name="userEmail"
                 type="email"
                 class="border-black border-b-2 text-center font-sans focus:outline-none"
                 required

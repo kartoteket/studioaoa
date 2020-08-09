@@ -1,24 +1,27 @@
 <template>
-  <article class="min-h-screen flex flex-col justify-center items-center pt-24">
+  <article
+    class="min-h-screen flex flex-col Xjustify-center items-center pt-24"
+  >
     <div class="px-8 text-center sm:px-0 sm:w-2/3">
-      <div class="flex flex-wrap container mx-auto mb-8 Xdebug">
+      <h1 class="heading-1 text-black vibrate">
+        Pick one of us!
+      </h1>
+
+      <div class="flex flex-wrap container mx-auto mb-8">
         <div
           v-for="dancer in listOfDancers"
           :key="dancer._id"
-          class="w-1/4 px-12"
+          class="sm:w-1/2 md:w-1/4 px-8 lg:px-16 mb-10 mx-auto"
         >
           <h2 class="hidden">{{ dancer.title }}</h2>
           <img
             :src="`${dancer.imageUrl}?w=256`"
             :alt="`#${dancer.title}`"
             @click="setDancer(dancer.slug.current)"
-            class="block"
+            class="block max-h-40 mx-auto"
           />
         </div>
       </div>
-      <h1 class="heading-1 text-2xl">
-        Pick one of us!
-      </h1>
     </div>
   </article>
 </template>
@@ -26,6 +29,7 @@
 <script>
 export default {
   name: 'HOK',
+  layout: 'hok',
   data() {
     return {
       selectedDancer: null
@@ -33,10 +37,10 @@ export default {
   },
   computed: {
     listOfDancers() {
-      if (this.selectedDancer)
-        return this.dancers.filter(
-          (d) => d.slug.current === this.selectedDancer
-        )
+      // if (this.selectedDancer)
+      //   return this.dancers.filter(
+      //     (d) => d.slug.current === this.selectedDancer
+      //   )
       return this.dancers
     }
   },

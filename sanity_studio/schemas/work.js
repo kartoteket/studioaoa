@@ -21,7 +21,7 @@ export default {
         source: 'title',
         maxLength: 96
       },
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required()
     },
     {
       name: 'coverImage',
@@ -36,8 +36,8 @@ export default {
       title: 'Content',
       type: 'array',
       of: [
-        {type: 'block'},
-        {type: 'image'},
+        { type: 'block' },
+        { type: 'image' },
         {
           title: 'Embed URL',
           description: 'For embedding in an iframe e.g. YouTube',
@@ -49,7 +49,7 @@ export default {
           description: 'Inline video file',
           name: 'video',
           type: 'file'
-        },
+        }
       ]
     },
     {
@@ -59,7 +59,7 @@ export default {
       type: 'object',
       options: {
         collapsible: true,
-        collapsed: true,
+        collapsed: true
       },
       fields: [
         {
@@ -78,20 +78,20 @@ export default {
           title: 'Image',
           name: 'image',
           type: 'image'
-        },
+        }
       ]
     },
     {
       name: 'body',
       title: 'Body (Old)',
       description: 'This field is deprecated. Please use "Content" instead',
-      type: 'blockContent',
+      type: 'blockContent'
     },
     {
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}]
+      of: [{ type: 'reference', to: { type: 'category' } }]
     },
     {
       name: 'publishedAt',
@@ -102,17 +102,18 @@ export default {
       name: 'priority',
       title: 'Priority',
       type: 'number',
-      validation: Rule => Rule.min(0).integer().positive(),
-    },
+      validation: (Rule) =>
+        Rule.min(0)
+          .integer()
+          .positive()
+    }
   ],
   orderings: [
     {
       title: 'Prioritet',
       name: 'positionsAsc',
-      by: [
-        {field: 'priority', direction: 'asc'}
-      ]
-    },
+      by: [{ field: 'priority', direction: 'asc' }]
+    }
   ],
 
   preview: {

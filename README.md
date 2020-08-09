@@ -2,7 +2,7 @@
 ## HOK Sprint Todo
 . A softer wiggle
 . A line
-
+. lambda
 
 X Størrelsen på bildene under Works - virker som de stretches så det blir kornete?
 => Nå har jeg skrudd opp størrelse og kvalitet - håper det hjelper noe. Hvis ikke nok, må vi se på originalene

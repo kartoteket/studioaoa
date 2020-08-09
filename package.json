@@ -9,14 +9,15 @@
     "static": "nuxt build && nuxt export",
     "serve": "nuxt serve",
     "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
+    "start": "nuxt start  && netlify-lambda build functions",
+    "generate": "nuxt generate && netlify-lambda build functions",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-beta.17",
     "get-youtube-id": "^1.0.1",
+    "netlify-lambda": "^2.0.1",
     "nuxt": "^2.0.0",
     "nuxt-sanity": "^0.0.8",
     "sanity-blocks-vue-component": "^0.1.0",

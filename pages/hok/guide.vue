@@ -17,22 +17,51 @@
             Thank you!<br />
             My name is {{ dancer.title }}.
           </h2>
-          <p class="mb-4">
-            What is your name?
-          </p>
-          <p class="mb-4">
-            <input
-              id="name"
-              @input="updateName($event.target.value)"
-              :value="userName"
-              type="text"
-              class="border-black border-b-2 text-center font-sans focus:outline-none"
-              autofocus
-            />
-          </p>
-          <p v-if="userName" class="heading-1 vibrate">
-            <button @click="step = 2">NEXT</button>
-          </p>
+          <form
+            @submit.prevent="handleSubmit"
+            name="submissions"
+            method="post"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="submissions" />
+            <div hidden aria-hidden="true">
+              <label>
+                Don’t fill this out if you're human:
+                <input name="bot-field" />
+              </label>
+            </div>
+            <p class="mb-4">
+              <label class="block mb-2">
+                What is your name?
+              </label>
+              <input
+                id="name"
+                @input="updateName($event.target.value)"
+                :value="userName"
+                type="text"
+                class="border-black border-b-2 text-center font-sans focus:outline-none mb-4"
+                autofocus
+                required
+              />
+            </p>
+            <p v-if="userName" class="mb-4">
+              <label for="email" class="block mb-2"
+                >And what is your email?
+              </label>
+              <input
+                id="email"
+                @input="updateEmail($event.target.value)"
+                :value="userEmail"
+                type="email"
+                class="border-black border-b-2 text-center font-sans focus:outline-none"
+                required
+              />
+            </p>
+            <p v-if="userName && userEmail" class="heading-1 vibrate">
+              <button>NEXT ></button>
+            </p>
+          </form>
         </div>
         <div
           v-if="step === 2"
@@ -49,7 +78,7 @@
           </p>
           <p>We call them TOTS</p>
           <p class="heading-1 vibrate">
-            <button @click="step = 3">NEXT</button>
+            <button @click="step = 3">> NEXT ></button>
           </p>
         </div>
         <div
@@ -63,7 +92,7 @@
           </p>
           <p>
             <n-link class="heading-1 vibrate" to="/hok/tots">
-              NEXT
+              > NEXT s>
             </n-link>
           </p>
         </div>
@@ -79,7 +108,7 @@
           </p>
           <p>
             <n-link class="heading-1 vibrate" to="/hok/fin">
-              NEXT
+              > NEXT >
             </n-link>
           </p>
         </div>
@@ -95,7 +124,8 @@ export default {
     return {
       step: 1,
       selectedDancer: null,
-      userName: ''
+      userName: '',
+      userEmail: ''
     }
   },
   computed: {
@@ -122,9 +152,16 @@ export default {
     this.step = localStorage.getItem('step') * 1 || 1
   },
   methods: {
+    handleSubmit() {
+      console.log(this.userName, this.userEmail)
+    },
     updateName(value) {
       this.userName = value
       localStorage.setItem('userName', value)
+    },
+    updateEmail(value) {
+      this.userEmail = value
+      localStorage.setItem('userEmail', value)
     }
   }
 }

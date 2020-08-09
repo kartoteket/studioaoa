@@ -10,7 +10,7 @@
     "serve": "nuxt serve",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate && yarn functions:build",
+    "generate": "nuxt generate && npm run functions:build",
     "functions:serve": "netlify-lambda serve functions",
     "functions:build": "netlify-lambda build functions",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."

@@ -96,6 +96,7 @@
 import PrevNext from '@/components/PrevNext'
 import Youtube from '@/components/YouTube'
 import ImageTag from '@/components/ImageTag'
+import VideoTag from '@/components/VideoTag'
 
 export default {
   components: {
@@ -108,7 +109,8 @@ export default {
       serializers: {
         types: {
           embedUrl: Youtube,
-          image: ImageTag
+          image: ImageTag,
+          video: VideoTag
         }
       }
     }
@@ -116,7 +118,7 @@ export default {
   async asyncData({ $sanity, params }) {
     const query = `{
       "work": *[_type == "work" && slug.current == "${params.id}"][0]{
-        _id, title, slug, year, body, content[]{..., "imageUrl": asset->url },
+        _id, title, slug, year, body, content[]{..., "imageUrl": asset->url, "video": asset->url },
         "embed": asset.embedUrl,
         "image": asset.image.asset->url,
         "video": asset.video.asset->url,

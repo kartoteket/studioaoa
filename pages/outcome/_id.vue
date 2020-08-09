@@ -16,6 +16,7 @@
       <article
         class="min-h-screen flex flex-col flex-grow justify-around items-center"
       >
+        <!-- TODO: Replace with componenet used in serializer -->
         <iframe
           v-if="work.embed"
           :src="work.embed"
@@ -26,6 +27,7 @@
           allowfullscreen
         ></iframe>
 
+        <!-- TODO: Replace with componenet used in serializer -->
         <video
           v-else-if="work.video"
           :loop="loop"
@@ -38,6 +40,7 @@
           <source :src="work.video" type="video/mp4" />
         </video>
 
+        <!-- TODO: Replace with componenet used in serializer -->
         <img
           v-else-if="work.image"
           :src="`${work.image}?w=300`"
@@ -94,8 +97,9 @@
 
 <script>
 import PrevNext from '@/components/PrevNext'
-import Youtube from '@/components/YouTube'
+import Youtube from '@/components/YouTube' // TDOD: Replace with EmbedTag that also suppoerts vimeo
 import ImageTag from '@/components/ImageTag'
+import VideoTag from '@/components/VideoTag'
 
 export default {
   components: {
@@ -108,7 +112,8 @@ export default {
       serializers: {
         types: {
           embedUrl: Youtube,
-          image: ImageTag
+          image: ImageTag,
+          video: VideoTag
         }
       }
     }
@@ -116,7 +121,7 @@ export default {
   async asyncData({ $sanity, params }) {
     const query = `{
       "work": *[_type == "work" && slug.current == "${params.id}"][0]{
-        _id, title, slug, year, body, content[]{..., "imageUrl": asset->url },
+        _id, title, slug, year, body, content[]{..., "imageUrl": asset->url, "video": asset->url },
         "embed": asset.embedUrl,
         "image": asset.image.asset->url,
         "video": asset.video.asset->url,

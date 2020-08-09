@@ -1,4 +1,12 @@
 
+## HOK Sprint Todo
+* Størrelsen på bildene under Works - virker som de stretches så det blir kornete?
+=> Nå har jeg skrudd opp størrelse og kvalitet - håper det hjelper noe. Hvis ikke nok, må vi se på originalene
+* Video er lagt inn igjen.
+* Oppdatert til ny slug (som hadde endret seg) for å få inn igjen tekstene under "/material"
+
+
+
 
 ## nice to haves
 X Kan musen gjøres om til et ikon som aktiveres når man holder musen over noe som er klikkbart?

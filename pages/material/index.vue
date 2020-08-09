@@ -25,7 +25,7 @@ export default {
   },
   async asyncData({ $sanity }) {
     const query = `{
-    "entry": *[_type == "page" && slug.current == "raw-material"][0] | {id, title, slug, text},
+    "entry": *[_type == "page" && slug.current == "material"][0] | {id, title, slug, text},
     "axis": *[_type == "axis" && defined(axisTot)] | order(id) | {_id, id, title, slug, text, "imageUrl": axisTot.asset->url},
     }`
     const result = await $sanity.fetch(query)

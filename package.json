@@ -5,12 +5,14 @@
   "author": "Svale Fossåskaret",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt & npm run functions:serve",
     "static": "nuxt build && nuxt export",
     "serve": "nuxt serve",
     "build": "nuxt build",
-    "start": "nuxt start  && netlify-lambda build functions",
-    "generate": "nuxt generate && netlify-lambda build functions",
+    "start": "nuxt start",
+    "generate": "nuxt generate && yarn functions:build",
+    "functions:serve": "netlify-lambda serve functions",
+    "functions:build": "netlify-lambda build functions",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {

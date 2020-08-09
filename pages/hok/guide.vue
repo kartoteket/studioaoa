@@ -18,7 +18,6 @@
             My name is {{ dancer.title }}.
           </h2>
           <form
-            @submit.prevent="handleSubmit"
             name="submissions"
             method="post"
             data-netlify="true"
@@ -59,7 +58,7 @@
               />
             </p>
             <p v-if="userName && userEmail" class="heading-1 vibrate">
-              <button>NEXT ></button>
+              <button type="submit">NEXT ></button>
             </p>
           </form>
         </div>
@@ -152,9 +151,29 @@ export default {
     this.step = localStorage.getItem('step') * 1 || 1
   },
   methods: {
-    handleSubmit() {
-      console.log(this.userName, this.userEmail)
-    },
+    // submitToServer() {
+    //   return new Promise((resolve, reject) => {
+    //     fetch(`/`, {...})
+    //       .then((response) => {
+    //         resolve(response)
+    //       })
+    //       .catch((err) => {
+    //         reject(err)
+    //       })
+    //   })
+    // },
+    // handleSubmit() {
+    //   this.submitToServer().then((response) => {
+    //     // const body = response.json()
+    //     if (Number(response.status) !== 200) {
+    //       console.log('Error submitting the form.')
+    //     } else {
+    //       console.log('Form was submitted!')
+    //       this.step = 2
+    //       // this.$router.push('/contact/thank-you')
+    //     }
+    //   })
+    // },
     updateName(value) {
       this.userName = value
       localStorage.setItem('userName', value)

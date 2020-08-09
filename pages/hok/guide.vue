@@ -45,22 +45,8 @@
                 required
               />
             </p>
-            <p v-if="userName" class="mb-4">
-              <label for="email" class="block mb-2"
-                >And what is your email?
-              </label>
-              <input
-                id="email"
-                @input="updateEmail($event.target.value)"
-                :value="userEmail"
-                name="userEmail"
-                type="email"
-                class="border-black border-b-2 text-center font-sans focus:outline-none"
-                required
-              />
-            </p>
-            <p v-if="userName && userEmail" class="heading-1 vibrate">
-              <button type="submit">NEXT ></button>
+            <p v-if="userName" class="heading-1 vibrate">
+              <button @click="step = 3">> NEXT ></button>
             </p>
           </form>
         </div>
@@ -89,11 +75,12 @@
           <p>
             Which TOT would<br />
             you like to see danced<br />
-            into life, {{ userName }}?
+            into life, <u>{{ userName }}</u
+            >?
           </p>
           <p>
             <n-link class="heading-1 vibrate" to="/hok/tots">
-              > NEXT s>
+              > NEXT >
             </n-link>
           </p>
         </div>
@@ -121,6 +108,7 @@
 <script>
 export default {
   name: 'HOK',
+  layout: 'hok',
   data() {
     return {
       step: 1,
@@ -153,29 +141,6 @@ export default {
     this.step = localStorage.getItem('step') * 1 || 1
   },
   methods: {
-    // submitToServer() {
-    //   return new Promise((resolve, reject) => {
-    //     fetch(`/`, {...})
-    //       .then((response) => {
-    //         resolve(response)
-    //       })
-    //       .catch((err) => {
-    //         reject(err)
-    //       })
-    //   })
-    // },
-    // handleSubmit() {
-    //   this.submitToServer().then((response) => {
-    //     // const body = response.json()
-    //     if (Number(response.status) !== 200) {
-    //       console.log('Error submitting the form.')
-    //     } else {
-    //       console.log('Form was submitted!')
-    //       this.step = 2
-    //       // this.$router.push('/contact/thank-you')
-    //     }
-    //   })
-    // },
     updateName(value) {
       this.userName = value
       localStorage.setItem('userName', value)

@@ -17,38 +17,24 @@
             Thank you!<br />
             My name is {{ dancer.title }}.
           </h2>
-          <form
-            name="submissions"
-            method="post"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-          >
-            <input type="hidden" name="form-name" value="submissions" />
-            <div hidden aria-hidden="true">
-              <label>
-                Don’t fill this out if you're human:
-                <input name="bot-field" />
-              </label>
-            </div>
-            <p class="mb-4">
-              <label class="block mb-2">
-                What is your name?
-              </label>
-              <input
-                id="name"
-                @input="updateName($event.target.value)"
-                :value="userName"
-                name="userName"
-                type="text"
-                class="border-black border-b-2 text-center font-sans focus:outline-none mb-4"
-                autofocus
-                required
-              />
-            </p>
-            <p v-if="userName" class="heading-1 vibrate">
-              <button @click="step = 3">> NEXT ></button>
-            </p>
-          </form>
+          <p class="mb-4">
+            <label class="block mb-2">
+              What is your name?
+            </label>
+            <input
+              id="name"
+              @input="updateName($event.target.value)"
+              :value="userName"
+              name="userName"
+              type="text"
+              class="border-black border-dashed  border-b-2 text-center font-sans focus:outline-none mb-4"
+              autofocus
+              required
+            />
+          </p>
+          <p v-if="userName" class="heading-1 vibrate">
+            <button @click="step = 3">> NEXT ></button>
+          </p>
         </div>
         <div
           v-if="step === 2"
@@ -95,10 +81,40 @@
             danced into reality. <br />
           </p>
           <p>
-            <n-link class="heading-1 vibrate" to="/hok/fin">
-              > NEXT >
-            </n-link>
+            Please provide a mail address<br />
+            to register for the live event<br />
+            and to review your final<br />
+            choices.<br />
           </p>
+          <p>
+            <input
+              id="email"
+              @input="updateEmail($event.target.value)"
+              :value="userEmail"
+              name="userEmail"
+              type="email"
+              class="border-black border-dashed border-b-2 text-center font-sans focus:outline-none"
+              required
+              autofocus
+            />
+          </p>
+          <div>
+            <form
+              name="submissions"
+              method="post"
+              action="/hok/fin"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+            >
+              <input type="hidden" name="form-name" value="submissions" />
+              <input :value="userName" type="hidden" name="userName" />
+              <input :value="userEmail" type="hidden" name="userEmail" />
+              <input :value="selectedTot" type="hidden" name="selectedTot" />
+              <button type="submit" class="heading-1 vibrate">
+                > SUBMIT >
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -126,6 +142,10 @@ export default {
     dancerImage() {
       if (this.step > 3) return this.dancer.imageUrl_3
       return this.dancer.imageUrl_2
+    },
+    selectedTot() {
+      if (this.step > 3) return localStorage.getItem('tot')
+      return null
     }
   },
   async asyncData({ $sanity }) {

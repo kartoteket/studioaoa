@@ -1,6 +1,6 @@
 <template>
   <div class="font-serif min-h-screen">
-    <header class="flex justify-between items-center fixed w-full z-10">
+    <header class="flex justify-between items-center fixed w-full XXz-10">
       <h1 class="my-4">
         <a href="/">
           <img

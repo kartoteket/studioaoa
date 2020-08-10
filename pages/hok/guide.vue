@@ -51,7 +51,7 @@
             </p>
           </div>
           <div v-else-if="step === 3">
-            <p>
+            <p class="mb-8">
               Which TOT would<br />
               you like to see danced<br />
               into life, <u>{{ userName }}</u

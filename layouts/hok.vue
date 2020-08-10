@@ -23,7 +23,7 @@
       </a>
     </header>
     <nuxt />
-    <footer class="flex justify-between items-center fixed w-full z-10 -mt-20">
+    <footer class="flex justify-between items-center fixed w-full -mt-20">
       <a href="https://www.kulturradet.no/">
         <img
           src="~/assets/img/hok/logo_Kulturradet_Endorser_Svart.png"

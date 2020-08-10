@@ -14,12 +14,13 @@
           class="sm:w-1/2 md:w-1/4 px-8 lg:px-16 mb-10 mx-auto"
         >
           <h2 class="hidden">{{ dancer.title }}</h2>
-          <img
-            :src="`${dancer.imageUrl}?w=256`"
-            :alt="`#${dancer.title}`"
-            @click="setDancer(dancer.slug.current)"
-            class="block max-h-40 mx-auto"
-          />
+          <a @click.prevent="setDancer(dancer.slug.current)">
+            <img
+              :src="`${dancer.imageUrl}?w=256`"
+              :alt="`#${dancer.title}`"
+              class="block max-h-40 mx-auto"
+            />
+          </a>
         </div>
       </div>
     </div>

@@ -12,36 +12,30 @@
           />
         </a>
       </h1>
-      <a href="http://hok.no/">
-        <img
-          src="~/assets/img/hok/logo_henie_onstad.png"
-          title="^O^ = Studioaoa"
-          alt="^O^ = Studioaoa logo"
-          width="80"
-          class="m-8"
-        />
-      </a>
+      <img
+        src="~/assets/img/hok/logo_henie_onstad.png"
+        title="^O^ = Studioaoa"
+        alt="^O^ = Studioaoa logo"
+        width="80"
+        class="m-8"
+      />
     </header>
     <nuxt />
-    <footer class="flex justify-between items-center fixed w-full z-10 -mt-20">
-      <a href="https://www.kulturradet.no/">
-        <img
-          src="~/assets/img/hok/logo_Kulturradet_Endorser_Svart.png"
-          title="^O^ = Studioaoa"
-          alt="^O^ = Studioaoa logo"
-          width="120"
-          class="m-8"
-        />
-      </a>
-      <a href="http://annchristinkongsness.com/Ny-Hovik-Ballett">
-        <img
-          src="~/assets/img/hok/logo_ny_hovik.png"
-          title="^O^ = Studioaoa"
-          alt="^O^ = Studioaoa logo"
-          width="100"
-          class="m-8"
-        />
-      </a>
+    <footer class="flex justify-between items-center fixed w-full -mt-20">
+      <img
+        src="~/assets/img/hok/logo_Kulturradet_Endorser_Svart.png"
+        title="^O^ = Studioaoa"
+        alt="^O^ = Studioaoa logo"
+        width="120"
+        class="m-8"
+      />
+      <img
+        src="~/assets/img/hok/logo_ny_hovik.png"
+        title="^O^ = Studioaoa"
+        alt="^O^ = Studioaoa logo"
+        width="100"
+        class="m-8"
+      />
     </footer>
   </div>
 </template>

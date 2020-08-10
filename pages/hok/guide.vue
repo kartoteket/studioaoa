@@ -86,32 +86,29 @@
             and to review your final<br />
             choices.<br />
           </p>
-          <p>
-            <input
-              id="email"
-              @input="updateEmail($event.target.value)"
-              :value="userEmail"
-              name="userEmail"
-              type="email"
-              class="border-black border-dashed border-b-2 text-center font-sans focus:outline-none"
-              required
-              autofocus
-            />
-          </p>
           <div>
             <form
-              :action="
-                `/hok/fin?u=${userName}&t=${selectedTot}&d=${dancer.title}`
-              "
+              @submit.prevent="handleSubmit"
               name="submissions"
               method="post"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
-              <input type="hidden" name="form-name" value="submissions" />
-              <input :value="userName" type="hidden" name="userName" />
-              <input :value="userEmail" type="hidden" name="userEmail" />
-              <input :value="selectedTot" type="hidden" name="selectedTot" />
+              <p class="mb-8">
+                <input type="hidden" name="form-name" value="submissions" />
+                <input :value="userName" type="hidden" name="name" />
+                <input :value="selectedTot" type="hidden" name="tot" />
+                <input
+                  id="email"
+                  @input="updateEmail($event.target.value)"
+                  :value="userEmail"
+                  name="email"
+                  type="email"
+                  class="border-black border-dashed border-b-2 text-center font-sans focus:outline-none"
+                  required
+                  autofocus
+                />
+              </p>
               <button type="submit" class="heading-1 vibrate">
                 > SUBMIT >
               </button>
@@ -124,9 +121,12 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'HOK',
   layout: 'hok',
+
   data() {
     return {
       step: 1,
@@ -135,11 +135,12 @@ export default {
       userEmail: ''
     }
   },
+
   computed: {
     dancer() {
       if (this.selectedDancer)
         return this.dancers.find((d) => d.slug.current === this.selectedDancer)
-      return []
+      return this.dancers[0] // fallback to first dancer
     },
     dancerImage() {
       if (this.step > 3) return this.dancer.imageUrl_3
@@ -150,6 +151,7 @@ export default {
       return null
     }
   },
+
   async asyncData({ $sanity }) {
     const query = `{
     "dancers": *[_type == "dancer"]{_id, title, slug, about, "imageUrl_2": assets.image_2.asset->url, "imageUrl_3": assets.image_3.asset->url},
@@ -157,16 +159,40 @@ export default {
     const result = await $sanity.fetch(query)
     return result
   },
+
   mounted() {
     this.selectedDancer = localStorage.getItem('dancer')
     this.userName = localStorage.getItem('userName')
     this.step = localStorage.getItem('step') * 1 || 1
   },
+
   methods: {
+    handleSubmit() {
+      const axiosConfig = {
+        header: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      }
+      const formData = new FormData()
+      formData.append('name', this.userName)
+      formData.append('email', this.userEmail)
+      formData.append('dancer', this.selectedDancer)
+      formData.append('tot', this.selectedTot)
+      formData.append('form-name', 'submissions')
+
+      axios
+        .post('/hok/form/', formData, axiosConfig)
+        .then(() => {
+          this.$router.push('/hok/fin')
+        })
+        .catch(() => {
+          this.$router.push('404')
+        })
+    },
+
     updateName(value) {
       this.userName = value
       localStorage.setItem('userName', value)
     },
+
     updateEmail(value) {
       this.userEmail = value
       localStorage.setItem('userEmail', value)

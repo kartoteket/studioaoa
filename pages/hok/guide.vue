@@ -89,18 +89,13 @@
           <div>
             <form
               @submit.prevent="handleSubmit"
-              action="/hok/fin/"
               name="submissions"
               method="post"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
               <p class="mb-8">
-                <input
-                  type="hidden"
-                  name="form-name"
-                  vsubmissionsalue="submissions"
-                />
+                <input type="hidden" name="form-name" value="submissions" />
                 <input :value="userName" type="hidden" name="name" />
                 <input :value="selectedTot" type="hidden" name="tot" />
                 <input
@@ -168,6 +163,9 @@ export default {
   },
   methods: {
     handleSubmit() {
+      const axiosConfig = {
+        header: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      }
       const formData = {
         name: this.userName,
         email: this.userEmail,
@@ -176,8 +174,10 @@ export default {
         'form-name': 'submissions'
       }
       console.log(formData)
+      console.log(JSON.stringify(formData))
+
       axios
-        .post('/', JSON.stringify(formData))
+        .post('/hok/form', JSON.stringify(formData), axiosConfig)
         .then(() => {
           this.$router.push('/hok/fin')
         })

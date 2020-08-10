@@ -88,27 +88,32 @@
           </p>
           <div>
             <form
+              @submit.prevent="handleSubmit"
               action="/hok/fin/"
               name="submissions"
               method="post"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
-              <input type="hidden" name="form-name" value="submissions" />
-              <input :value="userName" type="hidden" name="userName" />
               <p class="mb-8">
+                <input
+                  type="hidden"
+                  name="form-name"
+                  vsubmissionsalue="submissions"
+                />
+                <input :value="userName" type="hidden" name="name" />
+                <input :value="selectedTot" type="hidden" name="tot" />
                 <input
                   id="email"
                   @input="updateEmail($event.target.value)"
                   :value="userEmail"
-                  name="userEmail"
+                  name="email"
                   type="email"
                   class="border-black border-dashed border-b-2 text-center font-sans focus:outline-none"
                   required
                   autofocus
                 />
               </p>
-              <input :value="selectedTot" type="hidden" name="selectedTot" />
               <button type="submit" class="heading-1 vibrate">
                 > SUBMIT >
               </button>
@@ -121,6 +126,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'HOK',
   layout: 'hok',
@@ -160,6 +167,24 @@ export default {
     this.step = localStorage.getItem('step') * 1 || 1
   },
   methods: {
+    handleSubmit() {
+      const formData = {
+        name: this.userName,
+        email: this.userEmail,
+        dancer: this.selectedDancer,
+        tot: this.selectedTot,
+        'form-name': 'submissions'
+      }
+      console.log(formData)
+      axios
+        .post('/', JSON.stringify(formData))
+        .then(() => {
+          this.$router.push('/hok/fin')
+        })
+        .catch(() => {
+          this.$router.push('404')
+        })
+    },
     updateName(value) {
       this.userName = value
       localStorage.setItem('userName', value)

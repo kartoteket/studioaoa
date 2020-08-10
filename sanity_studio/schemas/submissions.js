@@ -36,6 +36,11 @@ export default {
           title: 'Tot'
         },
         {
+          name: 'dancer',
+          type: 'string',
+          title: 'Dancer'
+        },
+        {
           name: 'ip',
           type: 'string',
           title: 'IP',

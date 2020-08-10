@@ -27,7 +27,8 @@
           @click="setTot(entry.id)"
           :src="`${entry.imageUrl}?w=512`"
           :alt="`Tot #${entry.id}`"
-          class="max-h-60 mb-8 mx-auto"
+          :class="{ shrink: totIsPicked }"
+          class="max-h-60 mb-8 mx-auto tot"
         />
 
         <!-- Correspondence -->
@@ -64,24 +65,27 @@
     <nuxt-link
       v-show="!totIsPicked"
       to="/hok/tots"
-      class="absolute bottom-0 right-0 p-4 m-6 text-3xl font-sans"
+      class="absolute bottom-0 right-0 p-4 m-6 text-3xl font-sans z-10"
       title="Close page"
       aria-label="Close page"
     >
       X
     </nuxt-link>
 
-    <div :class="{ show: totIsPicked }" class="blackbox"></div>
+    <!-- Black Box -->
+    <cube :class="{ show: totIsPicked }" :spin="totIsPicked" class="cube" />
   </div>
 </template>
 
 <script>
 import PrevNext from '@/components/PrevNext'
+import Cube from '@/components/Cube'
 
 export default {
   layout: 'hok',
   components: {
-    PrevNext
+    PrevNext,
+    Cube
   },
   data() {
     return {
@@ -111,25 +115,45 @@ export default {
       localStorage.setItem('tot', id)
       localStorage.setItem('step', 4)
       this.totIsPicked = true
-      setTimeout(() => this.$router.push({ path: '/hok/guide' }), 2700)
+      setTimeout(() => this.$router.push({ path: '/hok/guide' }), 2900)
     }
   }
 }
 </script>
 <style>
-.blackbox {
-  position: absolute;
-  width: 333px;
-  height: 333px;
+.cube {
   visibility: hidden;
+  position: absolute;
+  top: 125%;
   left: 50%;
-  top: 100%;
-  background-color: black;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%) rotateX(-5deg) rotateY(-30deg);
   transition: top 2s;
 }
-.blackbox.show {
+
+.show {
   visibility: visible;
   top: 50%;
+}
+
+.shrink {
+  animation: shrink 3s ease-in-out forwards;
+}
+
+@keyframes shrink {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-30%) scale(0.75);
+  }
+  47% {
+    transform: translateY(-30%) scale(0.75);
+  }
+  80% {
+    transform: translateY(10%) scale(0.5);
+  }
+  100% {
+    transform: translateY(20%) scale(0);
+  }
 }
 </style>

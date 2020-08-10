@@ -126,6 +126,7 @@ import axios from 'axios'
 export default {
   name: 'HOK',
   layout: 'hok',
+
   data() {
     return {
       step: 1,
@@ -134,11 +135,12 @@ export default {
       userEmail: ''
     }
   },
+
   computed: {
     dancer() {
       if (this.selectedDancer)
         return this.dancers.find((d) => d.slug.current === this.selectedDancer)
-      return []
+      return this.dancers[0] // fallback to first dancer
     },
     dancerImage() {
       if (this.step > 3) return this.dancer.imageUrl_3
@@ -149,6 +151,7 @@ export default {
       return null
     }
   },
+
   async asyncData({ $sanity }) {
     const query = `{
     "dancers": *[_type == "dancer"]{_id, title, slug, about, "imageUrl_2": assets.image_2.asset->url, "imageUrl_3": assets.image_3.asset->url},
@@ -156,11 +159,13 @@ export default {
     const result = await $sanity.fetch(query)
     return result
   },
+
   mounted() {
     this.selectedDancer = localStorage.getItem('dancer')
     this.userName = localStorage.getItem('userName')
     this.step = localStorage.getItem('step') * 1 || 1
   },
+
   methods: {
     handleSubmit() {
       const axiosConfig = {
@@ -173,9 +178,6 @@ export default {
       formData.append('tot', this.selectedTot)
       formData.append('form-name', 'submissions')
 
-      console.log(formData)
-      console.log(JSON.stringify(formData))
-
       axios
         .post('/hok/form/', formData, axiosConfig)
         .then(() => {
@@ -185,10 +187,12 @@ export default {
           this.$router.push('404')
         })
     },
+
     updateName(value) {
       this.userName = value
       localStorage.setItem('userName', value)
     },
+
     updateEmail(value) {
       this.userEmail = value
       localStorage.setItem('userEmail', value)

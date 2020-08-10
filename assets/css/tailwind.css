@@ -22,6 +22,58 @@ a:hover{
 }
 
 
+.vibrate {
+  animation: 2.5s shake cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite alternate;
+  /* animation: shake 0.82s  both; */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* @keyframes shake {
+  0% {
+    transform: skewX(-15deg);
+  }
+  5% {
+    transform: skewX(15deg);
+  }
+  10% {
+    transform: skewX(-15deg);
+  }
+  15% {
+    transform: skewX(15deg);
+  }
+  20% {
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+} */
+@keyframes shake {
+  2%,
+  18% {
+    transform: translate3d(-1px, -1px, 0);
+  }
+
+  4%,
+  16% {
+    transform: translate3d(2px, 1px, 0);
+  }
+
+  6%,
+  10%,
+  14% {
+    transform: translate3d(-4px, -2px, 0);
+  }
+
+  8%,
+  12% {
+    transform: translate3d(4px, 2px, 0);
+  }
+}
+
+
 /**
  ** Abstrations
  */
@@ -30,6 +82,10 @@ a:hover{
 }
 .heading-2 {
   @apply text-ocher font-bold
+}
+
+.heading-1.text-black {
+  @apply text-black
 }
 
 /**

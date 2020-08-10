@@ -67,15 +67,15 @@ export default {
     this.selectedDancer = localStorage.getItem('dancer')
     this.selectedTot = localStorage.getItem('tot') * 1
 
-    console.log(this.name, this.selectedDancer, this.selectedTot)
+    // console.log(this.name, this.selectedDancer, this.selectedTot)
 
     const query = `{
       "tot": *[_type == "axis" && id == ${this.selectedTot}][0] | {_id, id, title, slug, text, "imageUrl": axisTot.asset->url},
       "dancer": *[_type == "dancer" && slug.current == "${this.selectedDancer}"][0] | {_id, title, slug, about, "imageUrl_2": assets.image_2.asset->url, "imageUrl_3": assets.image_3.asset->url},
     }`
-    console.log('query', query)
+    // console.log('query', query)
     const result = await this.$sanity.fetch(query)
-    console.log('result', result)
+    // console.log('result', result)
     this.tot = result.tot
     this.dancer = result.dancer
   }

@@ -86,18 +86,6 @@
             and to review your final<br />
             choices.<br />
           </p>
-          <p>
-            <input
-              id="email"
-              @input="updateEmail($event.target.value)"
-              :value="userEmail"
-              name="userEmail"
-              type="email"
-              class="border-black border-dashed border-b-2 text-center font-sans focus:outline-none"
-              required
-              autofocus
-            />
-          </p>
           <div>
             <form
               :action="
@@ -110,7 +98,18 @@
             >
               <input type="hidden" name="form-name" value="submissions" />
               <input :value="userName" type="hidden" name="userName" />
-              <input :value="userEmail" type="hidden" name="userEmail" />
+              <p class="mb-8">
+                <input
+                  id="email"
+                  @input="updateEmail($event.target.value)"
+                  :value="userEmail"
+                  name="userEmail"
+                  type="email"
+                  class="border-black border-dashed border-b-2 text-center font-sans focus:outline-none"
+                  required
+                  autofocus
+                />
+              </p>
               <input :value="selectedTot" type="hidden" name="selectedTot" />
               <button type="submit" class="heading-1 vibrate">
                 > SUBMIT >

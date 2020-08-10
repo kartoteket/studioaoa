@@ -88,9 +88,7 @@
           </p>
           <div>
             <form
-              :action="
-                `/hok/fin?u=${userName}&t=${selectedTot}&d=${dancer.title}`
-              "
+              action="/hok/fin"
               name="submissions"
               method="post"
               data-netlify="true"

@@ -166,18 +166,18 @@ export default {
       const axiosConfig = {
         header: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }
-      const formData = {
-        name: this.userName,
-        email: this.userEmail,
-        dancer: this.selectedDancer,
-        tot: this.selectedTot,
-        'form-name': 'submissions'
-      }
+      const formData = new FormData()
+      formData.append('name', this.userName)
+      formData.append('email', this.userEmail)
+      formData.append('dancer', this.selectedDancer)
+      formData.append('tot', this.selectedTot)
+      formData.append('form-name', 'submissions')
+
       console.log(formData)
       console.log(JSON.stringify(formData))
 
       axios
-        .post('/hok/form', JSON.stringify(formData), axiosConfig)
+        .post('/hok/form/', formData, axiosConfig)
         .then(() => {
           this.$router.push('/hok/fin')
         })

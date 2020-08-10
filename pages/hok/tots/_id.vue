@@ -24,6 +24,7 @@
         </button>
         <img
           v-if="entry.imageUrl"
+          @click="setTot(entry.id)"
           :src="`${entry.imageUrl}?w=512`"
           :alt="`Tot #${entry.id}`"
           class="max-h-60 mb-8 mx-auto"
@@ -99,7 +100,7 @@ export default {
   },
   async asyncData({ $sanity, params }) {
     const query = `{
-    "entry": *[_type == "axis" && id == ${params.id}][0] | {_id, id, title, slug, text, "imageUrl": axisTot.asset->url},
+      "entry": *[_type == "axis" && id == ${params.id}][0] | {_id, id, title, slug, text, "imageUrl": axisTot.asset->url},
     }`
     const result = await $sanity.fetch(query)
     return result

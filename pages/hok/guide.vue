@@ -88,7 +88,7 @@
           </p>
           <div>
             <form
-              action="/hok/fin"
+              action="/hok/fin/"
               name="submissions"
               method="post"
               data-netlify="true"

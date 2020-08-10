@@ -112,7 +112,7 @@ export default {
       localStorage.setItem('step', 4)
       this.totIsPicked = true
       console.log('enter box for tot #' + id)
-      setTimeout(() => this.$router.push({ path: '/hok/guide' }), 3000)
+      setTimeout(() => this.$router.push({ path: '/hok/guide' }), 2700)
     }
   }
 }

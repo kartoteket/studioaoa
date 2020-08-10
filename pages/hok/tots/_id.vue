@@ -78,6 +78,7 @@
 import PrevNext from '@/components/PrevNext'
 
 export default {
+  layout: 'hok',
   components: {
     PrevNext
   },

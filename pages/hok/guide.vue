@@ -100,9 +100,11 @@
           </p>
           <div>
             <form
+              :action="
+                `/hok/fin?u=${userName}&t=${selectedTot}&d=${dancer.title}`
+              "
               name="submissions"
               method="post"
-              action="/hok/fin"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >

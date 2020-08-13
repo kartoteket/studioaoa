@@ -39,7 +39,13 @@
       </n-link>
 
       <footer>
-        <ul class="flex justify-center items-center my-8 Xdebug">
+        <img
+          src="~/assets/img/hok/logos.png"
+          alt="logo"
+          class="block my-4 w-full"
+        />
+
+        <!-- <ul class="flex justify-center items-center my-8 Xdebug">
           <li class="block px-4">
             <img
               src="~/assets/img/hok/logo_henie_onstad.png"
@@ -73,7 +79,7 @@
               class="block"
             />
           </li>
-        </ul>
+        </ul> -->
       </footer>
     </div>
   </article>

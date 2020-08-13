@@ -1,13 +1,13 @@
 <template>
-  <article class="min-h-screen flex flex-col justify-center items-center pt-24">
+  <article class="min-h-screen flex flex-col justify-center items-center pt-16">
     <div class="px-8 text-center sm:px-0 sm:w-2/3">
       <div
-        class="sm:flex md:justify-center container mx-auto mb-8 text-center Xdebug relative"
+        class="sm:flex md:justify-center container mx-auto mb-8 text-center relative"
       >
         <img
           :src="`${dancerImage}?w=256`"
           :alt="`#${dancer.title}`"
-          class="block max-h-50 sm:max-h-60 sm:pt-20"
+          class="block max-h-50 sm:max-h-60 self-end mx-auto sm:mx-0 sm:mt-20"
         />
         <div class="relative rtf text-center mr-10 sm:mr-0 sm:ml-24 sm:w-1/5">
           <div class="hidden sm:block drawline" />

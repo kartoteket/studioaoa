@@ -1,7 +1,7 @@
 <template>
   <article class="min-h-screen flex flex-col items-center pt-24">
     <div class="px-8 text-center sm:px-0 sm:w-2/3">
-      <h1 class="vibrate mb-8">
+      <h1 class="mb-8">
         Pick your guide to the world of the Molecular Ballet!
       </h1>
       <div class="flex flex-wrap container mx-auto mb-8">

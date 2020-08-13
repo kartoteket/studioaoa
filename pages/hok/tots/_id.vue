@@ -19,9 +19,8 @@
         v-if="entry"
         class="self-center text-center flex flex-col justify-between"
       >
-        <h1 v-show="!totIsPicked" class="vibrate text-center mb-8">
-          Klick on the TOT to choose it, or use the arrows to navigate the
-          collection.
+        <h1 v-show="!totIsPicked" class="text-center mb-8">
+          Click on the TOT to choose it, or use the arrows to explore.
         </h1>
         <a @click.prevent="setTot(entry.id)">
           <img

@@ -1,9 +1,8 @@
 <template>
   <section class="p-12 pt-24">
     <article class="sm:w-4/5 lg:w-3/5 xl:w-2/3 mx-auto mb-10">
-      <h1 class="vibrate text-center mb-8">
-        Explore the TOTs and pick one that you would like to see danced into
-        reality!
+      <h1 class="text-center mb-8">
+        Pick a TOT that you want to see danced into reality.
       </h1>
     </article>
     <div class="tots flex flex-wrap items-start pt-8 container mx-auto">

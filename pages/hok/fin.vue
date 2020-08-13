@@ -15,6 +15,9 @@
           class="max-h-40 mb-8 mx-auto"
         />
       </div>
+      <p class="mb-4">
+        Thank you! That was all!
+      </p>
       <p class="text-ocher">
         Your name:
       </p>
@@ -42,9 +45,17 @@
       </p>
 
       <p class="text-ocher">See you at:</p>
-      <p>Henie Onstad Kunstsenter, 23rd of August</p>
-      <p>Or on the online live stream.</p>
-      <p>Please photograph this page for reference.</p>
+      <p class="mb-4">Henie Onstad Kunstsenter, 23rd of August 1200-1500</p>
+      <p class="mb-4">
+        We will send you an email with a map, information and a link to the live
+        stream should you wish to follow online.
+      </p>
+      <p class="mb-4">
+        Please print or screen dump this page for your reference!
+      </p>
+      <p class="vibrate">
+        <n-link to="/">Back to Studio ^O^</n-link>
+      </p>
     </div>
   </article>
 </template>
@@ -52,7 +63,7 @@
 <script>
 export default {
   name: 'Fin',
-  layout: 'hok',
+  // layout: 'hok',
   data() {
     return {
       name: '',

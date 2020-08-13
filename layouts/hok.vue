@@ -12,15 +12,16 @@
           />
         </a>
       </h1>
-      <img
+      <!-- <img
         src="~/assets/img/hok/logo_henie_onstad.png"
         title="^O^ = Studioaoa"
         alt="^O^ = Studioaoa logo"
         width="80"
         class="m-8"
-      />
+      /> -->
     </header>
     <nuxt />
+    <!--
     <footer class="flex justify-between items-center fixed w-full -mt-20">
       <img
         src="~/assets/img/hok/logo_Kulturradet_Endorser_Svart.png"
@@ -37,6 +38,7 @@
         class="m-8"
       />
     </footer>
+    -->
   </div>
 </template>
 <script>

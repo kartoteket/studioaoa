@@ -1,12 +1,9 @@
 <template>
-  <article
-    class="min-h-screen flex flex-col Xjustify-center items-center pt-24"
-  >
+  <article class="min-h-screen flex flex-col items-center pt-24">
     <div class="px-8 text-center sm:px-0 sm:w-2/3">
-      <h1 class="heading-1 text-black vibrate">
-        Pick one of us!
+      <h1 class="vibrate mb-8">
+        Pick your guide to the world of the Molecular Ballet!
       </h1>
-
       <div class="flex flex-wrap container mx-auto mb-8">
         <div
           v-for="dancer in listOfDancers"
@@ -30,7 +27,7 @@
 <script>
 export default {
   name: 'HOK',
-  layout: 'hok',
+  // layout: 'hok',
   data() {
     return {
       selectedDancer: null

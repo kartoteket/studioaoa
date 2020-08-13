@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex justify-between min-h-screen pt-24">
+    <div class="flex justify-between min-h-screen">
       <!-- Prev Axis -->
       <prev-next
         :url="prevPage"
@@ -19,17 +19,19 @@
         v-if="entry"
         class="self-center text-center flex flex-col justify-between"
       >
-        <button v-show="!totIsPicked" @click="setTot(entry.id)" class="vibrate">
-          Pick this Tot!
-        </button>
-        <img
-          v-if="entry.imageUrl"
-          @click="setTot(entry.id)"
-          :src="`${entry.imageUrl}?w=512`"
-          :alt="`Tot #${entry.id}`"
-          :class="{ shrink: totIsPicked }"
-          class="max-h-60 mb-8 mx-auto tot"
-        />
+        <h1 v-show="!totIsPicked" class="vibrate text-center mb-8">
+          Klick on the TOT to choose it, or use the arrows to navigate the
+          collection.
+        </h1>
+        <a @click.prevent="setTot(entry.id)">
+          <img
+            v-if="entry.imageUrl"
+            :src="`${entry.imageUrl}?w=512`"
+            :alt="`Tot #${entry.id}`"
+            :class="{ shrink: totIsPicked }"
+            class="max-h-60 mb-8 mx-auto tot"
+          />
+        </a>
 
         <!-- Correspondence -->
         <div
@@ -82,7 +84,7 @@ import PrevNext from '@/components/PrevNext'
 import Cube from '@/components/Cube'
 
 export default {
-  layout: 'hok',
+  // layout: 'hok',
   components: {
     PrevNext,
     Cube

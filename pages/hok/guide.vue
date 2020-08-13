@@ -9,15 +9,15 @@
           :alt="`#${dancer.title}`"
           class="block max-h-50 sm:max-h-60 sm:pt-20"
         />
-        <div class="relative rtf text-center mr-10 sm:mr-0 sm:ml-24">
+        <div class="relative rtf text-center mr-10 sm:mr-0 sm:ml-24 sm:w-1/5">
           <div class="hidden sm:block drawline" />
           <div v-if="step === 1">
             <h2 class="mb-4">
               Thank you!<br />
-              My name is {{ dancer.title }}.
+              I am {{ dancer.title }}.
             </h2>
             <p class="mb-4">
-              <label class="block mb-2">
+              <label class="block mb-4">
                 What is your name?
               </label>
               <input
@@ -26,55 +26,54 @@
                 :value="userName"
                 name="userName"
                 type="text"
-                class="border-black border-dashed  border-b-2 text-center font-sans focus:outline-none mb-4"
+                class="border-black border-dashed  border-b-2 text-center font-sans focus:outline-none mb-6"
                 autofocus
                 required
               />
             </p>
-            <p v-if="userName" class="heading-1 vibrate">
-              <button @click="step = 3">> NEXT ></button>
+            <p
+              v-if="userName"
+              class="font-extrabold text-2xl text-center mb-4 vibrate"
+            >
+              <button @click="step = 2">>>>>>>>></button>
             </p>
           </div>
           <div v-else-if="step === 2">
-            <p>
-              Our language seems<br />
-              broken!
+            <p class="mb-4">Our language seems to be broken in so many ways!</p>
+            <p class="mb-4">
+              We have collected 256 symbols to try to make a new one.
             </p>
-            <p>
-              We’ve collected 256<br />
-              symbols to try to<br />
-              make a new one.
-            </p>
-            <p>We call them TOTS</p>
-            <p class="heading-1 vibrate">
-              <button @click="step = 3">> NEXT ></button>
+            <p class="mb-4">We call them TOTS</p>
+
+            <p class="font-extrabold text-2xl text-center mb-4 vibrate">
+              <button @click="step = 3">>>>>>>>></button>
             </p>
           </div>
           <div v-else-if="step === 3">
             <p class="mb-8">
-              Which TOT would<br />
-              you like to see danced<br />
-              into life, <u>{{ userName }}</u
-              >?
+              On Sunday we will start dancing the TOTs into reality.
+            </p>
+            <p class="mb-4">
+              Which TOT would you like to see realized, {{ userName }}?
             </p>
             <p>
-              <n-link class="heading-1 vibrate" to="/hok/tots">
-                > NEXT >
+              <n-link
+                class="font-extrabold text-2xl text-center mb-4 vibrate"
+                to="/hok/tots"
+              >
+                >>>>>>>>
               </n-link>
             </p>
           </div>
           <div v-else-if="step === 4">
-            <p>
-              Thank you! I will bring your<br />
-              Tot to Høvikodden where it<br />
-              may be picked out to be<br />
-              danced into reality. <br />
+            <p class="mb-4">Thank you!</p>
+            <p class="mb-4">
+              I will bring your specific TOT to Høvikodden to dance. Watch out
+              for the black box!
             </p>
-            <p>
-              Please provide a mail address<br />
-              to register for the live event<br />
-              and to review your final<br />
-              choices.<br />
+            <p class="mb-4">
+              Please provide your mail adress to register for the live event and
+              the stream.
             </p>
             <div>
               <form
@@ -99,8 +98,11 @@
                     autofocus
                   />
                 </p>
-                <button type="submit" class="heading-1 vibrate">
-                  > SUBMIT >
+                <button
+                  type="submit"
+                  class="font-extrabold text-2xl text-center mb-4 vibrate"
+                >
+                  >>>>>>>>
                 </button>
               </form>
             </div>
@@ -116,7 +118,7 @@ import axios from 'axios'
 
 export default {
   name: 'HOK',
-  layout: 'hok',
+  // layout: 'hok',
 
   data() {
     return {

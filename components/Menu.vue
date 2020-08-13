@@ -10,6 +10,15 @@
           Home
         </nuxt-link>
       </li>
+      <li class="menu__item">
+        <nuxt-link
+          @click.native="toggleMenu()"
+          :class="`text-${textColor}`"
+          to="/hok"
+        >
+          HOK 23/8
+        </nuxt-link>
+      </li>
 
       <li class="menu__item">
         <nuxt-link

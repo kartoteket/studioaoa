@@ -1,11 +1,13 @@
 <template>
-  <div :class="{ spin: spin }" class="cube">
-    <div class="ft"></div>
-    <div class="rt">></div>
-    <div class="bk">></div>
-    <div class="lt">></div>
-    <div class="tp">></div>
-    <div class="bm">></div>
+  <div class="wrapper">
+    <div :class="{ spin: spin }" class="cube">
+      <div class="ft"></div>
+      <div class="rt">></div>
+      <div class="bk">></div>
+      <div class="lt">></div>
+      <div class="tp">></div>
+      <div class="bm">></div>
+    </div>
   </div>
 </template>
 <script>
@@ -23,6 +25,7 @@ export default {
 .cube {
   --width: 40vw;
 }
+
 @media all and (min-width: 450px) {
   .cube {
     --width: 30vw;
@@ -34,19 +37,38 @@ export default {
   }
 }
 
-.cube {
-  width: var(--width);
-  height: var(--width);
+.wrapper {
+  position: absolute;
+  top: 125%;
+  left: 50%;
+  z-index: 20;
   transform-style: preserve-3d;
+  transform: translateZ(1000px);
+  transition: top 2s;
+}
+
+.cube {
+  visibility: hidden;
+  width: var(--width);
+  transform-style: preserve-3d;
+  transform: translateX(-50%) rotateX(-5deg) rotateY(-30deg);
+  height: var(--width);
   transition: all 1s;
+}
+.show {
+  top: 50%;
+}
+
+.show .cube {
+  visibility: visible;
 }
 
 .cube > div {
+  z-index: 30;
   position: absolute;
   width: var(--width);
   height: var(--width);
-  background-color: rgba(0, 0, 0, 0.8);
-  border: 1px solid #000;
+  background-color: #000;
 }
 
 .cube .ft {

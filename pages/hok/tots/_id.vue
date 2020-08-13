@@ -75,7 +75,7 @@
     </nuxt-link>
 
     <!-- Black Box -->
-    <cube :class="{ show: totIsPicked }" :spin="totIsPicked" class="cube" />
+    <cube :class="{ show: totIsPicked }" :spin="totIsPicked" />
   </div>
 </template>
 
@@ -123,20 +123,6 @@ export default {
 }
 </script>
 <style>
-.cube {
-  visibility: hidden;
-  position: absolute;
-  top: 125%;
-  left: 50%;
-  transform: translateX(-50%) rotateX(-5deg) rotateY(-30deg);
-  transition: top 2s;
-}
-
-.show {
-  visibility: visible;
-  top: 50%;
-}
-
 .shrink {
   animation: shrink 3s ease-in-out forwards;
 }

@@ -31,10 +31,7 @@
                 required
               />
             </p>
-            <p
-              v-if="userName"
-              class="font-extrabold text-2xl text-center mb-4 vibrate"
-            >
+            <p v-if="userName" class="font-extrabold text-2xl text-center mb-4">
               <button @click="step = 2">>>>>>>>></button>
             </p>
           </div>
@@ -45,7 +42,7 @@
             </p>
             <p class="mb-4">We call them TOTS</p>
 
-            <p class="font-extrabold text-2xl text-center mb-4 vibrate">
+            <p class="font-extrabold text-2xl text-center mb-4">
               <button @click="step = 3">>>>>>>>></button>
             </p>
           </div>
@@ -58,7 +55,7 @@
             </p>
             <p>
               <n-link
-                class="font-extrabold text-2xl text-center mb-4 vibrate"
+                class="font-extrabold text-2xl text-center mb-4"
                 to="/hok/tots"
               >
                 >>>>>>>>
@@ -100,7 +97,7 @@
                 </p>
                 <button
                   type="submit"
-                  class="font-extrabold text-2xl text-center mb-4 vibrate"
+                  class="font-extrabold text-2xl text-center mb-4"
                 >
                   >>>>>>>>
                 </button>

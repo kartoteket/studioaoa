@@ -3,7 +3,7 @@
     <div class="px-8 text-center sm:px-0 w-2/3 md:w-3/4 lg:w-3/5">
       <n-link to="/hok/dancers">
         <video
-          class="max-h-70 mx-auto"
+          class="max-h-60 mx-auto my-4"
           autoplay="autoplay"
           preload="auto"
           playsinline
@@ -18,24 +18,17 @@
         </video>
       </n-link>
       <h1 class="heading-1">
-        Molecular Ballet at Henie Onstad Art Centre
+        Molecular Ballet at HOK
       </h1>
-      <p class="mb-8">
-        How can we enlarge our language to describe the territory we have
-        already entered?
-      </p>
-      <p class="mb-8">
-        On Sunday the 23rd of August at 1200-1500, the sculpture park at HOK is
-        transformed into a laboratory to explore and embody a set of new
-        hieroglyphs.
+      <p class="mb-8 text-left">
+        How can we expand our language to describe the territory we have already
+        entered? On Sunday the 23rd of August at 1200, the sculpture park at
+        Henie Onstad Kunstsenter will be transformed into a hieroglyphic dance
+        laboratory.
       </p>
 
-      <n-link
-        class="block heading-1 mt-8 vibrate text-black underline"
-        to="/hok/dancers"
-      >
-        Click to get your ticket and decide which symbols should be danced into
-        reality.
+      <n-link class="block  mt-8 underline" to="/hok/dancers">
+        Join the ballet!
       </n-link>
 
       <footer>

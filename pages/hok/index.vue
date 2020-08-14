@@ -1,6 +1,6 @@
 <template>
   <article class="min-h-screen flex flex-col justify-center items-center">
-    <div class="px-8 text-center sm:px-0 w-2/3 md:w-3/4 lg:w-3/5">
+    <div class="px-8 text-center sm:px-0 w-2/3 md:w-3/4 lg:w-2/5">
       <n-link to="/hok/dancers">
         <video
           :poster="require('~/assets/videos/MolecularArsCombinatoriaHOK.jpg')"

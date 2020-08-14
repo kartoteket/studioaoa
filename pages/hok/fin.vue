@@ -1,6 +1,6 @@
 <template>
   <article class="min-h-screen flex flex-col justify-center items-center pt-24">
-    <div class="px-8 pb-32 text-center sm:px-0 sm:w-2/3 lg:w-3/5">
+    <div class="px-8 pb-32 text-center sm:px-0 sm:w-2/3 lg:w-2/5">
       <div class="flex">
         <img
           v-if="dancer.imageUrl_2"

@@ -3,16 +3,16 @@
     <div class="px-8 text-center sm:px-0 w-2/3 md:w-3/4 lg:w-3/5">
       <n-link to="/hok/dancers">
         <video
+          :poster="require('~/assets/videos/MolecularArsCombinatoriaHOK.jpg')"
           class="max-h-60 mx-auto my-4"
           autoplay="autoplay"
           preload="auto"
           playsinline
           muted="muted"
-          poster
           loop
         >
           <source
-            src="~assets/videos/Cheth 13_1_utviklet 2_2_1_1.mp4"
+            src="~assets/videos/MolecularArsCombinatoriaHOK.mp4"
             type="video/mp4"
           />
         </video>

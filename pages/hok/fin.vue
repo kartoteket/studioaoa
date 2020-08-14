@@ -29,7 +29,7 @@
       <p class="text-ocher mb-4">Your Tot:</p>
       <p class="mb-4">{{ tot.title }}</p>
 
-      <p class="text-ocher mb-4">
+      <p v-if="tot.text" class="text-ocher mb-4">
         A meditation seed to prepare you for the Dance:
       </p>
       <block-content
